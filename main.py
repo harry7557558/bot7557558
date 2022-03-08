@@ -5,6 +5,7 @@ import datetime
 import hello
 import polynomial
 import desmos
+import trigger
 
 
 async def send_text_message(channel, message):
@@ -30,14 +31,17 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    # Create a conflict with JOMD
     if message.content.startswith('+gimmie'):
         await message.channel.send(":monkey:")
         return
 
+    # What the heck?
     if message.content.startswith('$hello'):
         await hello.send_hello_message(message)
         return
 
+    # Mathy stuff
     if message.content.startswith('poly '):
         expr = message.content[len('poly '):]
         expr = expr.strip().strip('`')
@@ -45,6 +49,7 @@ async def on_message(message):
         await send_text_message(message.channel, expanded)
         return
 
+    # Desmos stuff
     check_history = message.content.startswith("history")
     graph_embeds = desmos.parse_message_links(message.content, check_history)
     if len(graph_embeds) != 0:
@@ -53,10 +58,12 @@ async def on_message(message):
         await message.edit(suppress=True)
         return
 
-    triggered_embed = hello.detect_trigger(message)
+    # Keep this at the end
+    triggered_embed = trigger.detect_trigger(message)
     if triggered_embed != None:
         await message.channel.send(embed=triggered_embed)
         return
+
 
 try:
     # my local Windows
