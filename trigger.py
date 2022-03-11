@@ -1,8 +1,11 @@
 # magical
 
+from email.mime import base
 import discord
 import re
 import datetime
+import base64
+import json
 
 
 def detect_trigger(message):
@@ -14,7 +17,7 @@ def detect_trigger(message):
                 continue
             t += c
         if len(t) > 3:
-            if t.endswith('ing'):
+            if t.endswith('ing') or t.endswith('nes'):
                 t = t[:len(t)-3]
             elif t.endswith('ed') or t.endswith('er') or t.endswith('es'):
                 t = t[:len(t)-2]
@@ -34,12 +37,9 @@ def detect_trigger(message):
     words = content.split()
 
     # detect triggers
-    # maybe I should not expose it in code by encrypting it?
-    triggers_o = ['orz', 'sus', 'lmao', 'lmfao',
-                  'fuck', 'wtf', 'shit', 'bullshit',
-                  'damn', 'damnit', 'omg', 'suck']
+    triggers_o = b">9\\!+H6OmaF*2OJ/0\\nI@;d>@,&D+.@;d>@,%bt-CEb;RGB@F@/0].KBlkOM,%>\\2Cia9(F<W7[A79=m+tOpK@;TmrF<W7[Df',2/0].X@r!8o"
     triggers = {}
-    for trigger in triggers_o:
+    for trigger in json.loads(base64.a85decode(triggers_o).decode('utf-8')):
         triggers[dedup(trigger)] = trigger
     keywords = []
     for word in words:

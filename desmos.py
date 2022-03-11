@@ -22,14 +22,73 @@ def get_graph_info(url):
     return json.loads(info)
 
 
+def get_graph_size_summary(state) -> str:
+    """Generate a string of the size of the graph as a summary"""
+    def format_plural(count: int, name: str) -> str:
+        name += "s" * (count > 1)
+        count_s = ""
+        while count >= 1000:
+            count_s = "," + "{:03d}".format(count % 1000) + count_s
+            count //= 1000
+        count_s = str(count) + count_s
+        return count_s + " " + name
+    byte_count = len(bytearray(json.dumps(
+        state, separators=(',', ':')), 'utf-8'))  # may vary
+    expr_count, note_count, folder_count, table_count, img_count = [0]*5
+    for expr in state['expressions']['list']:
+        if 'type' not in expr:
+            continue  # ??
+        if expr['type'] == "expression" and 'latex' in expr:
+            expr_count += 1
+        if expr['type'] == "text" and 'text' in expr:
+            note_count += 1
+        if expr['type'] == "folder":
+            folder_count += 1
+        if expr['type'] == "table":
+            table_count += 1
+        if expr['type'] == "image":
+            img_count += 1
+    size_info = [format_plural(byte_count, "byte")]
+    if expr_count != 0:
+        size_info.append(format_plural(expr_count, "expression"))
+    if note_count != 0:
+        size_info.append(format_plural(note_count, "note"))
+    if folder_count != 0:
+        size_info.append(format_plural(folder_count, "folder"))
+    if table_count != 0:
+        size_info.append(format_plural(table_count, "table"))
+    if img_count != 0:
+        size_info.append(format_plural(img_count, "image"))
+    size_info = " • ".join(size_info)
+    return size_info
+
+
+def get_graph_description(state) -> str:
+    """Generate a description of the graph for preview purpose"""
+    description = ""
+    for expr in state['expressions']['list']:
+        if 'type' not in expr:
+            continue
+        if expr['type'] == "expression" and 'latex' in expr:
+            break
+        if expr['type'] in ['table', 'image']:
+            break
+        if expr['type'] == "text" and 'text' in expr:
+            description += expr['text'] + '\n\n'
+    return description.strip()
+
+
 def generate_embed(url, check_history: bool):
+    # basic graph info
     info = get_graph_info(url)
     graph = info['graph']
+    state = graph['state']
     hash = graph['hash']
     title = "Desmos | Graphing Calculator" if graph['title'] == None else graph['title']
-    thumbnail = graph['thumbUrl']
+    thumbnail = graph['thumbUrl'] if 'thumbUrl' in graph else "https://s3.amazonaws.com/desmos/img/calc_thumb.png"
     time = datetime.datetime(*email.utils.parsedate(graph['created'])[:6])
 
+    # generate embed
     embed = discord.Embed(title=title, color=0x107030)
     embed.set_author(name="Desmos")
     embed.url = url
@@ -37,6 +96,20 @@ def generate_embed(url, check_history: bool):
     embed.set_footer(text=hash)
     embed.timestamp = time
 
+    # preview
+    if not check_history or True:
+        description = get_graph_description(state)
+        size_summary = get_graph_size_summary(state)
+        if description == "":
+            embed.description = size_summary
+        else:
+            maxlen = 256 if check_history else 512
+            if len(description) > maxlen:
+                description = description[:maxlen]+'...'
+            embed.description = description
+            embed.set_footer(text=hash + " • " + size_summary)
+
+    # history
     if check_history:
         history = []
         pgraph = graph
@@ -63,8 +136,11 @@ def generate_embed(url, check_history: bool):
 
 
 def parse_message_links(message, check_history: bool):
-    links = re.findall(
-        r"https://www.desmos.com/calculator/[a-z0-9]+", message)
+    links = []
+    for link in re.findall(
+            r"https://www.desmos.com/calculator/[a-z0-9]+", message):
+        if link not in links:
+            links.append(link)
     embeds = []
     for link in links:
         try:
@@ -76,5 +152,4 @@ def parse_message_links(message, check_history: bool):
 
 
 if __name__ == "__main__":
-    parse_message_links(
-        """https://www.desmos.com/calculator/ftuogjzprg""", True)
+    generate_embed("https://www.desmos.com/calculator/z7zooq9zsh", False)
