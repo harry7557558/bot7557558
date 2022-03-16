@@ -5,6 +5,7 @@ import datetime
 import hello
 import polynomial
 import desmos
+import shadertoy
 import trigger
 
 
@@ -49,14 +50,9 @@ async def on_message(message):
         await send_text_message(message.channel, expanded)
         return
 
-    # Desmos stuff
-    check_history = message.content.startswith("history")
-    graph_embeds = desmos.parse_message_links(message.content, check_history)
-    if len(graph_embeds) != 0:
-        for embed in graph_embeds:
-            await message.channel.send(embed=embed)
-        await message.edit(suppress=True)
-        return
+    # Desmos/Shadertoy stuff
+    await desmos.message_main(message)
+    await shadertoy.message_main(message)
 
     # Keep this at the end
     triggered_embed = trigger.detect_trigger(message)

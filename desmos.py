@@ -151,5 +151,14 @@ def parse_message_links(message, check_history: bool):
     return embeds
 
 
+async def message_main(message):
+    check_history = message.content.lower().strip().startswith("history")
+    graph_embeds = parse_message_links(message.content, check_history)
+    if len(graph_embeds) != 0:
+        for embed in graph_embeds:
+            await message.channel.send(embed=embed)
+        await message.edit(suppress=True)
+
+
 if __name__ == "__main__":
     generate_embed("https://www.desmos.com/calculator/z7zooq9zsh", False)

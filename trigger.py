@@ -32,22 +32,30 @@ def detect_trigger(message):
         content = message.content
     if '`' in content or '|' in content:
         return None  # hmmm
-    content = re.sub(r"[^A-Za-z0-9_\w]", ' ', content)
+    content = re.sub(r"[^A-Za-z0-9\u0080-\uffff]", ' ', content)
     content = re.sub(r"\s+", ' ', content)
     words = content.split()
 
     # detect triggers
-    triggers_o = b">9\\!+H6OmaF*2OJ/0\\nI@;d>@,&D+.@;d>@,%bt-CEb;RGB@F@/0].KBlkOM,%>\\2Cia9(F<W7[A79=m+tOpK@;TmrF<W7[Df',2/0].X@r!8o"
+    triggers_o = b'>9\\!+H6OmaDgETY,\'.mJ+tOpSD..?,/0\\nIAmoU%/0\\\\K@r!8>,\'S-@+tOpZBPDQ4/0\\PGCi"0+BlkOM,%P,!DB^VUA79=mBlkOM,&_=2+tOpZF^o22/0\\M>DeF36+tOpWASu4\'+tOpJF`):F>l'
     triggers = {}
     for trigger in json.loads(base64.a85decode(triggers_o).decode('utf-8')):
         triggers[dedup(trigger)] = trigger
-    keywords = []
+    keywords = {}
     for word in words:
         word = dedup(word)
         if word in triggers:
-            keywords.append(triggers[word])
+            keyword = triggers[word]
+            if keyword not in keywords:
+                keywords[keyword] = 0
+            keywords[keyword] += 1
     if len(keywords) == 0:
         return None
+    for (keyword, count) in keywords.items():
+        if count == 1:
+            keywords[keyword] = keyword
+        else:
+            keywords[keyword] = keyword + f"(×{count})"
 
     # apply trigger
     embed = discord.Embed(title="Trigger Detected!", color=0xff0000)
@@ -58,7 +66,7 @@ def detect_trigger(message):
                     value=message.content[:600],
                     inline=True)
     embed.add_field(name="Trigger"+'s'*(len(keywords) > 1),
-                    value=', '.join(keywords),
+                    value=', '.join(list(keywords.values())),
                     inline=True)
     embed.timestamp = datetime.datetime.utcnow()
     return embed
