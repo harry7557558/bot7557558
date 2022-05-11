@@ -7,8 +7,8 @@ import re
 from datetime import datetime
 
 
-def get_shader(shader_id: str) -> dict:
-    headers = {
+def request_headers(shader_id):
+    return {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
         'accept': '*/*',
         'accept-language': 'en-US,en;q=0.5',
@@ -18,6 +18,10 @@ def get_shader(shader_id: str) -> dict:
         'origin': 'https://www.shadertoy.com',
         'referer': f'https://www.shadertoy.com/view/{shader_id}'
     }
+
+
+def get_shader(shader_id: str) -> dict:
+    print("Request Shadertoy", shader_id)
     data = {
         's': json.dumps({"shaders": [shader_id]}),
         'nt': '1',
@@ -27,7 +31,7 @@ def get_shader(shader_id: str) -> dict:
     req = requests.post(
         "https://www.shadertoy.com/shadertoy",
         data=data,
-        headers=headers
+        headers=request_headers(shader_id)
     )
     if req.status_code != 200:
         return None
@@ -38,10 +42,122 @@ def get_shader(shader_id: str) -> dict:
     return response[0]
 
 
-def generate_embed(url: str):
+def minify_code(code: str):
+    """Grabbed from Shadertoy implementation"""
+    def isSpace(s):
+        return s in [' ', '\t']
+
+    def isLine(s):
+        return s == '\n'
+
+    def replaceChars(s):
+        dst = ""
+        isPreprocessor = False
+        for i in range(len(s)):
+            if s[i] == "#":
+                isPreprocessor = True
+            elif s[i] == "\n":
+                if isPreprocessor:
+                    isPreprocessor = False
+                else:
+                    dst += " "
+                    continue
+            elif s[i] in ["\r", "\t"]:
+                dst += " "
+                continue
+            elif i < len(s) - 1 and s[i] == "\\" and s[i+1] == "\n":
+                i += 1
+                continue
+            dst += s[i]
+        return dst
+
+    def removeEmptyLines(s):
+        d = ""
+        isPreprocessor = False
+        for i in range(len(s)):
+            if s[i] == '#':
+                isPreprocessor = True
+            isDestroyableChar = isLine(s[i])
+            if isDestroyableChar and not isPreprocessor:
+                continue
+            if isDestroyableChar and isPreprocessor:
+                isPreprocessor = False
+            d += s[i]
+        return d
+
+    def removeMultiSpaces(s):
+        dst = ""
+        for i in range(len(s)):
+            if isSpace(s[i]) and i == len(s) - 1:
+                continue
+            if isSpace(s[i]) and isLine(s[i-1]):
+                continue
+            if isSpace(s[i]) and isLine(s[i+1]):
+                continue
+            if isSpace(s[i]) and isSpace(s[i+1]):
+                continue
+            dst += s[i]
+        return dst
+
+    def removeSingleSpaces(s):
+        dst = ""
+        for i in range(len(s)):
+            iss = isSpace(s[i])
+            if i == 0 and iss:
+                continue
+            if i > 0:
+                if iss and s[i-1] in ";,}{()+-*/?<>[]:=^%\n\r":
+                    continue
+            if i > 1:
+                if iss and s[i-2:i] in ["&&", "||", "^^", "!=", "=="]:
+                    continue
+            if iss and s[i+1] in ";,}{()+-*/?<>[]:=^%\n\r":
+                continue
+            if i < len(s) - 2:
+                if iss and s[i+1:i+3] in ["&&", "||", "^^", "!=", "=="]:
+                    continue
+            dst += s[i]
+        return dst
+
+    def removeComments(s):
+        dst = ""
+        state = 0
+        i = 0
+        while i < len(s):
+            if i <= len(s)-2:
+                if state == 0 and s[i:i+2] == "/*":
+                    state = 1
+                    i += 2
+                    continue
+                if state == 0 and s[i:i+2] == "//":
+                    state = 2
+                    i += 2
+                    continue
+                if state == 1 and s[i:i+2] == "*/":
+                    dst += " "
+                    state = 0
+                    i += 2
+                    continue
+                if state == 2 and s[i] in "\r\n":
+                    state = 0
+                    i += 1
+                    continue
+            if state == 0:
+                dst += s[i]
+            i += 1
+        return dst
+
+    code = removeComments(code)
+    code = replaceChars(code)
+    code = removeMultiSpaces(code)
+    code = removeSingleSpaces(code)
+    code = removeEmptyLines(code)
+    return code
+
+
+def generate_embed(shader_id: str):
 
     # basic info
-    shader_id = url[url.rfind('/')+1:]
     shader = get_shader(shader_id)
     if shader is None:
         return None
@@ -59,19 +175,54 @@ def generate_embed(url: str):
         2: "unlisted",
         3: "public+api"
     }[info['published']]
+    footer = " • ".join([tags, status])
     thumb_url = f"https://www.shadertoy.com/media/shaders/{shader_id}.jpg"
     author_url = f"https://www.shadertoy.com/user/{author}"
-    author_icon_url = f"https://www.shadertoy.com/media/users/harry7557558/{author}.png"
-    footer = " • ".join([tags, status])
+    author_icon_url = "https://www.shadertoy.com/img/profile.jpg"
+    for ext in ['png', 'jpg', 'jpeg', 'webp']:
+        url = f"https://www.shadertoy.com/media/users/{author}/profile.{ext}"
+        r = requests.get(url, headers=request_headers(shader_id))
+        print(r.status_code)
+        if r.status_code < 300:
+            author_icon_url = url
+            break
+
+    # renderpass
+    orders = ["Common", "Buffer A", "Buffer B",
+              "Buffer C", "Buffer D", "Cube A", "Image", "Sound"]
+    passes = []
+    for renderpass in shader['renderpass']:
+        name = renderpass['name']
+        name = name.replace("Buf ", "Buffer ")
+        assert name in orders
+        inputs = renderpass['inputs']
+        outputs = renderpass['outputs']
+        code = renderpass['code']
+        open(".temp", "w").write(minify_code(code))  # so I can check for bug
+        passes.append({
+            "name": name,
+            "chars": len(minify_code(code))
+        })
+    if len(passes) == 1:
+        passes_str = passes[0]['name'] + " • " + \
+            str(passes[0]['chars']) + " chars"
+    else:
+        passes = sorted(passes, key=lambda rp: orders.index(rp['name']))
+        passes_name_str = " • ".join([ps['name'] for ps in passes])
+        passes_chars = [ps['chars'] for ps in passes]
+        passes_chars_str = " + ".join(map(str, passes_chars)) + \
+            " = " + str(sum(passes_chars)) + " chars"
+        passes_str = passes_name_str + "\n" + passes_chars_str
 
     # generate embed
     embed = discord.Embed(title=title, color=0x404040)
-    embed.url = url
+    embed.url = "https://www.shadertoy.com/view/" + shader_id
     embed.set_author(name=author, url=author_url, icon_url=author_icon_url)
     embed.description = description
     embed.set_image(url=thumb_url)
     embed.set_footer(text=footer)
     embed.timestamp = date
+    embed.add_field(name="Renderpass", value=passes_str, inline=False)
     embed.add_field(name="Views", value=str(views), inline=True)
     embed.add_field(name="Likes", value=str(likes), inline=True)
 
@@ -79,18 +230,18 @@ def generate_embed(url: str):
 
 
 def parse_message_links(message):
-    links = []
-    for link in re.findall(
-            r"https://www.shadertoy.com/view/[A-Za-z0-9_]+", message):
-        if link not in links:
-            links.append(link)
+    shader_ids = {}
+    for url in re.findall(
+            r"https?://(?:www\.)?shadertoy\.com/view/[A-Za-z0-9_]+", message):
+        shader_id = url[url.rfind('/')+1:]
+        shader_ids[shader_id] = True
     embeds = []
-    for link in links:
+    for shader_id in shader_ids:
         try:
-            embed = generate_embed(link)
+            embed = generate_embed(shader_id)
             embeds.append(embed)
         except BaseException as error:
-            print("Shadertoy error", link, error)
+            print("Shadertoy error", shader_id, error)
     return embeds
 
 
@@ -100,7 +251,3 @@ async def message_main(message):
         for embed in graph_embeds:
             await message.channel.send(embed=embed)
         # await message.edit(suppress=True)
-
-
-if __name__ == "__main__":
-    generate_embed("https://www.shadertoy.com/view/7dBfDt")

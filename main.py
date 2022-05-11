@@ -61,10 +61,22 @@ async def on_message(message):
         return
 
 
-try:
-    # my local Windows
-    client.run(open(".token").read())
-except:
-    # repl.it
-    __import__("keep_alive").keep_alive()
-    client.run(os.getenv('TOKEN'))
+@client.event
+async def on_message_edit(before, after):
+    if after.author == client.user:
+        return
+
+    triggered_embed = trigger.detect_trigger(after)
+    if triggered_embed != None:
+        await after.channel.send(embed=triggered_embed)
+        return
+
+
+if __name__ == "__main__":
+    try:
+        # my local Windows
+        client.run(open(".token").read())
+    except:
+        # repl.it
+        __import__("keep_alive").keep_alive()
+        client.run(os.getenv('TOKEN'))

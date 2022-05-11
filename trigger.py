@@ -17,7 +17,9 @@ def detect_trigger(message):
                 continue
             t += c
         if len(t) > 3:
-            if t.endswith('ing') or t.endswith('nes'):
+            if t.endswith('ings'):
+                t = t[:len(t)-4]
+            if t.endswith('ing') or t.endswith('nes') or t.endswith('ers'):
                 t = t[:len(t)-3]
             elif t.endswith('ed') or t.endswith('er') or t.endswith('es'):
                 t = t[:len(t)-2]
@@ -37,7 +39,7 @@ def detect_trigger(message):
     words = content.split()
 
     # detect triggers
-    triggers_o = b'>9\\!+H6OmaDgETY,\'.mJ+tOpSD..?,/0\\nIAmoU%/0\\\\K@r!8>,\'S-@+tOpZBPDQ4/0\\PGCi"0+BlkOM,%P,!DB^VUA79=mBlkOM,&_=2+tOpZF^o22/0\\M>DeF36+tOpWASu4\'+tOpJF`):F>l'
+    triggers_o = b">9\\!+H6OmaF*2OJ/0\\\\K@r!8>,'S-@+tOpSD.[3p+tOpVD.[E)/0].KBlkOM,%>\\2Cia9(F<W7[F(f90E,Tf>+tOpWASu4'+tOpJF`):F>l"
     triggers = {}
     for trigger in json.loads(base64.a85decode(triggers_o).decode('utf-8')):
         triggers[dedup(trigger)] = trigger
@@ -58,15 +60,22 @@ def detect_trigger(message):
             keywords[keyword] = keyword + f"(×{count})"
 
     # apply trigger
+    content = message.content[:600]
+    if content != message.content:
+        content += "..."
     embed = discord.Embed(title="Trigger Detected!", color=0xff0000)
     embed.add_field(name="User",
                     value=message.author.mention,
                     inline=True)
     embed.add_field(name="Message",
-                    value=message.content[:600],
+                    value=content,
                     inline=True)
     embed.add_field(name="Trigger"+'s'*(len(keywords) > 1),
                     value=', '.join(list(keywords.values())),
                     inline=True)
     embed.timestamp = datetime.datetime.utcnow()
     return embed
+
+
+if __name__ == "__main__":
+    detect_trigger("")

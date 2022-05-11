@@ -1,4 +1,5 @@
 # type `$hello` to see what happens
+# run the script to do something magical
 
 import discord
 import requests
@@ -105,3 +106,39 @@ async def send_hello_message(message):
     embed.set_thumbnail(
         url=" https://harry7557558.github.io/src/snowflake.jpg")
     await message.channel.send(embed=embed)
+
+
+if __name__ == "__main__":
+
+    client = discord.Client()
+
+    async def message_console(channel):
+        while True:
+            text = input(">>> ").strip()
+            if text != "":
+                await channel.send(text)
+
+    @client.event
+    async def on_ready():
+        print('Logged in as {0.user}'.format(client))
+        channel = discord.utils.get(
+            client.get_all_channels(), name="bot7557558")
+        await message_console(channel)
+
+    @client.event
+    async def on_message(message):
+        if message.author == client.user:
+            return
+        print(message.author, '-', message.content)
+        for (key, value) in {
+            'hello': "\N{waving hand sign}",
+            'monke': "\N{monkey}",
+            'froze': "\N{snowflake}",
+            'ice': "\N{ice cube}",
+            'sofak': "<:sofake:950886743811457044>",
+            'moan': "<:moana:884504102543982632>"
+        }.items():
+            if key in message.content.lower():
+                await message.add_reaction(value)
+
+    client.run(open(".token").read())

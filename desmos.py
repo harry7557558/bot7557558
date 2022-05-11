@@ -78,8 +78,9 @@ def get_graph_description(state) -> str:
     return description.strip()
 
 
-def generate_embed(url, check_history: bool):
+def generate_embed(graph_id, check_history: bool):
     # basic graph info
+    url = "https://www.desmos.com/calculator/" + graph_id
     info = get_graph_info(url)
     graph = info['graph']
     state = graph['state']
@@ -136,29 +137,27 @@ def generate_embed(url, check_history: bool):
 
 
 def parse_message_links(message, check_history: bool):
-    links = []
-    for link in re.findall(
-            r"https://www.desmos.com/calculator/[a-z0-9]+", message):
-        if link not in links:
-            links.append(link)
+    graph_ids = {}
+    for url in re.findall(
+            r"https?://(?:www\.)?desmos\.com/calculator/[a-z0-9]+", message):
+        graph_id = url[url.rfind('/')+1:]
+        graph_ids[graph_id] = True
     embeds = []
-    for link in links:
+    for graph_id in graph_ids:
         try:
-            embed = generate_embed(link, check_history)
+            embed = generate_embed(graph_id, check_history)
             embeds.append(embed)
         except BaseException as error:
-            print("Desmos graph error", link, error)
+            print("Desmos graph error", graph_id, error)
     return embeds
 
 
 async def message_main(message):
+    if message.content.count("||") >= 2:
+        return
     check_history = message.content.lower().strip().startswith("history")
     graph_embeds = parse_message_links(message.content, check_history)
     if len(graph_embeds) != 0:
         for embed in graph_embeds:
             await message.channel.send(embed=embed)
         await message.edit(suppress=True)
-
-
-if __name__ == "__main__":
-    generate_embed("https://www.desmos.com/calculator/z7zooq9zsh", False)
