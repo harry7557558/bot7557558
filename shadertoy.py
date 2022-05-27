@@ -4,7 +4,7 @@ import discord
 import requests
 import json
 import re
-from datetime import datetime
+import datetime
 
 
 def request_headers(shader_id):
@@ -155,6 +155,19 @@ def minify_code(code: str):
     return code
 
 
+def get_description(info):
+    s = info['description']
+    # parent
+    if info['parentid'] != '':
+        prefix = f"Forked from {info['parentname']} (https://www.shadertoy.com/view/{info['parentid']})\n\n"
+        s = prefix + s
+    # clear formatting
+    s = re.sub(r'\[([a-z]+)\](.*?)\[\/\1\]', '\\2', s)
+    # hyperlink
+    s = re.sub(r'\[url=([\"\']?)(.*?)\1\](.*?)\[\/url\]', '\\3 (\\2)', s)
+    return s
+
+
 def generate_embed(shader_id: str):
 
     # basic info
@@ -164,11 +177,12 @@ def generate_embed(shader_id: str):
     info = shader['info']
     title = info['name']
     author = info['username']
-    date = datetime.fromtimestamp(int(info['date']))
-    description = info['description']
+    date = datetime.datetime.fromtimestamp(int(info['date']))
+    description = get_description(info)
     tags = ', '.join(info['tags'])
     views = info['viewed']
     likes = info['likes']
+    like_rate = 100.0 * min(float(likes) / max(float(views), 1), 1.0)
     status = {
         0: "private",
         1: "public",
@@ -182,27 +196,66 @@ def generate_embed(shader_id: str):
     for ext in ['png', 'jpg', 'jpeg', 'webp']:
         url = f"https://www.shadertoy.com/media/users/{author}/profile.{ext}"
         r = requests.get(url, headers=request_headers(shader_id))
-        print(r.status_code)
+        print("Request", url, "-", r.status_code)
         if r.status_code < 300:
             author_icon_url = url
             break
 
     # renderpass
+
     orders = ["Common", "Buffer A", "Buffer B",
               "Buffer C", "Buffer D", "Cube A", "Image", "Sound"]
     passes = []
+
+    mains_count = {
+        'mainImage': 0,
+        'mainSound': 0,
+        'mainVR': 0,
+    }
+    uniforms_count = {
+        'iResolution': 0,
+        'iTime': 0,
+        'iTimeDelta': 0,
+        'iChannelTime': 0,
+        'iFrame': 0,
+        'iMouse': 0,
+        'iDate': 0,
+        'iSampleRate': 0,
+        'iChannelResolution': 0,
+    }
+    textures_count = {
+        'buffer': 0,
+        'texture': 0,
+        'cubemap': 0,
+        'video': 0,
+        'music': 0,
+        'musicstream': 0,
+        'mic': 0,
+        'webcam': 0,
+        'volume': 0,
+        'keyboard': 0,
+    }
+
     for renderpass in shader['renderpass']:
         name = renderpass['name']
         name = name.replace("Buf ", "Buffer ")
         assert name in orders
-        inputs = renderpass['inputs']
-        outputs = renderpass['outputs']
-        code = renderpass['code']
+        code = minify_code(renderpass['code'])
         open(".temp", "w").write(minify_code(code))  # so I can check for bug
         passes.append({
             "name": name,
-            "chars": len(minify_code(code))
+            "chars": len(code)
         })
+        words = re.sub(r"[^A-Za-z0-9_]+", ' ', code).strip()
+        for word in words.split():
+            if word in mains_count:
+                mains_count[word] += 1
+            if word in uniforms_count:
+                uniforms_count[word] += 1
+        for input in renderpass['inputs']:
+            if input['type'] in textures_count:  # should be
+                textures_count[input['type']] += 1
+
     if len(passes) == 1:
         passes_str = passes[0]['name'] + " • " + \
             str(passes[0]['chars']) + " chars"
@@ -213,6 +266,13 @@ def generate_embed(shader_id: str):
         passes_chars_str = " + ".join(map(str, passes_chars)) + \
             " = " + str(sum(passes_chars)) + " chars"
         passes_str = passes_name_str + "\n" + passes_chars_str
+
+    mains = [item[0] for item in mains_count.items() if item[1] > 0]
+    uniforms = [item[0] for item in uniforms_count.items() if item[1] > 0]
+    textures = [item[0] for item in textures_count.items() if item[1] > 0]
+    ios = ' ｜ '.join([' • '.join(s)
+                      for s in [mains, uniforms, textures] if s != []])
+    passes_str += '\n' + ios
 
     # generate embed
     embed = discord.Embed(title=title, color=0x404040)
@@ -225,6 +285,8 @@ def generate_embed(shader_id: str):
     embed.add_field(name="Renderpass", value=passes_str, inline=False)
     embed.add_field(name="Views", value=str(views), inline=True)
     embed.add_field(name="Likes", value=str(likes), inline=True)
+    embed.add_field(name="Like rate", value="{:.2f} %".format(like_rate),
+                    inline=True)
 
     return embed
 

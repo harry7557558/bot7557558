@@ -19,7 +19,13 @@ def get_graph_info(url):
     if len(matches) == 0:
         raise ValueError(f"Graph contains no `data-load-data`.")
     info = html.unescape(matches[0])
-    return json.loads(info)
+    graph = json.loads(info)['graph']
+    if "state" not in graph:
+        state_url = graph['stateUrl']
+        print("Request", state_url)
+        state_str = requests.get(state_url).content
+        graph['state'] = json.loads(state_str)
+    return graph
 
 
 def get_graph_size_summary(state) -> str:
@@ -81,8 +87,7 @@ def get_graph_description(state) -> str:
 def generate_embed(graph_id, check_history: bool):
     # basic graph info
     url = "https://www.desmos.com/calculator/" + graph_id
-    info = get_graph_info(url)
-    graph = info['graph']
+    graph = get_graph_info(url)
     state = graph['state']
     hash = graph['hash']
     title = "Desmos | Graphing Calculator" if graph['title'] == None else graph['title']
@@ -148,6 +153,7 @@ def parse_message_links(message, check_history: bool):
             embed = generate_embed(graph_id, check_history)
             embeds.append(embed)
         except BaseException as error:
+            raise error
             print("Desmos graph error", graph_id, error)
     return embeds
 
