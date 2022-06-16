@@ -9,7 +9,7 @@ import email.utils
 import datetime
 
 
-def get_graph_info(url):
+def get_graph_info(url, state_required=True):
     print("Request", url)
     req = requests.get(url)
     if req.status_code != 200:
@@ -20,7 +20,7 @@ def get_graph_info(url):
         raise ValueError(f"Graph contains no `data-load-data`.")
     info = html.unescape(matches[0])
     graph = json.loads(info)['graph']
-    if "state" not in graph:
+    if state_required and "state" not in graph:
         state_url = graph['stateUrl']
         print("Request", state_url)
         state_str = requests.get(state_url).content
@@ -30,6 +30,7 @@ def get_graph_info(url):
 
 def get_graph_size_summary(state) -> str:
     """Generate a string of the size of the graph as a summary"""
+
     def format_plural(count: int, name: str) -> str:
         name += "s" * (count > 1)
         count_s = ""
@@ -38,6 +39,8 @@ def get_graph_size_summary(state) -> str:
             count //= 1000
         count_s = str(count) + count_s
         return count_s + " " + name
+
+    # get size
     byte_count = len(bytearray(json.dumps(
         state, separators=(',', ':')), 'utf-8'))  # may vary
     expr_count, note_count, folder_count, table_count, img_count = [0]*5
@@ -65,8 +68,20 @@ def get_graph_size_summary(state) -> str:
         size_info.append(format_plural(table_count, "table"))
     if img_count != 0:
         size_info.append(format_plural(img_count, "image"))
-    size_info = " • ".join(size_info)
-    return size_info
+
+    # detect animation
+    for expr in state['expressions']['list']:
+        if 'type' not in expr or expr['type'] != "expression":
+            continue
+        if 'slider' in expr and 'isPlaying' in expr['slider'] \
+                and expr['slider']['isPlaying'] is True:
+            size_info.append("slider")
+            break
+    if 'ticker' in state['expressions'] and \
+        'playing' in state['expressions']['ticker'] and \
+            state['expressions']['ticker']['playing'] is True:
+        size_info.append("ticker")
+    return " • ".join(size_info)
 
 
 def get_graph_description(state) -> str:
@@ -126,8 +141,7 @@ def generate_embed(graph_id, check_history: bool):
                 if phash == hash:
                     break
                 purl = "https://www.desmos.com/calculator/"+phash
-                pinfo = get_graph_info(purl)
-                pgraph = pinfo['graph']
+                pgraph = get_graph_info(purl, False)
                 history.append(purl)
             except:
                 ended = True
@@ -161,7 +175,7 @@ def parse_message_links(message, check_history: bool):
 async def message_main(message):
     if message.content.count("||") >= 2:
         return
-    check_history = message.content.lower().strip().startswith("history")
+    check_history = "history" in message.content.lower()
     graph_embeds = parse_message_links(message.content, check_history)
     if len(graph_embeds) != 0:
         for embed in graph_embeds:

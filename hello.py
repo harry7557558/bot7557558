@@ -8,6 +8,27 @@ import html
 import random
 
 
+_idum = random.randrange(0, 2**32)
+
+
+def van_der_corput(n, b):
+    """Quasi-random"""
+    x = 0.0
+    e = 1.0 / b
+    while n != 0:
+        d = n % b
+        x += d * e
+        e /= b
+        n = n // b
+    return x
+
+
+def quasi_random():
+    global _idum
+    _idum += 1
+    return van_der_corput(_idum, 2)
+
+
 def get_site_objects(url: str) -> dict:
     """Get quote or link list from https://harry7557558.github.io/"""
     assert url in ["https://harry7557558.github.io/src/quotes.json",
@@ -84,7 +105,7 @@ async def send_hello_message(message):
         return
 
     # random quote/link
-    rnd = random.random()
+    rnd = quasi_random()
     s = 0.0
     object = objects[-1]
     for item in objects:

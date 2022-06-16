@@ -24,13 +24,17 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print('Logged in as {0.user}'.format(client))
+    message = 'Logged in as `{0.user}`.'.format(client)
+    print(message)
+    channel = client.get_channel(947155714059665458)
+    await channel.send(message)
 
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
+    trigger.detect_ghost_ping(message)
 
     # Create a conflict with JOMD
     if message.content.startswith('+gimmie'):
@@ -67,9 +71,22 @@ async def on_message_edit(before, after):
         return
 
     triggered_embed = trigger.detect_trigger(after)
-    if triggered_embed != None:
+    if triggered_embed is not None:
         await after.channel.send(embed=triggered_embed)
+
+    ghostping_embed = trigger.detect_ghost_ping(before, after)
+    if ghostping_embed is not None:
+        await after.channel.send(embed=ghostping_embed)
+
+
+@client.event
+async def on_message_delete(message):
+    if message.author == client.user:
         return
+
+    ghostping_embed = trigger.detect_ghost_ping(message)
+    if ghostping_embed is not None:
+        await message.channel.send(embed=ghostping_embed)
 
 
 if __name__ == "__main__":
