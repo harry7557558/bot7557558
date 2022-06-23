@@ -1,11 +1,29 @@
 # magical
 
-from email.mime import base
 import discord
 import re
 import datetime
 import base64
 import json
+
+
+def remove_spoilers(content: str) -> str:
+    """Prevent unwanted content from triggering the bot"""
+
+    content = content.replace('\r', '')
+
+    # remove blockquotes
+    content = '\n' + content
+    content = re.sub(r"\n\s*\>\>\>.*", "", content, flags=re.S)
+    content = re.sub(r"\n\s*\>.*?$", "", content, flags=re.M)
+    content = content.strip('\n')
+
+    # remove codeblocks and spoilers
+    content = re.sub(r"```.*?```", "", content, flags=re.S)
+    content = re.sub(r"\|\|.*?\|\|", "", content, flags=re.S)
+    content = re.sub(r"`.*?`", "", content, flags=re.S)
+
+    return content
 
 
 checked_messages = {}
@@ -14,7 +32,7 @@ checked_messages = {}
 # https://www.englishhints.com/list-of-prefixes.html
 # https://www.thoughtco.com/common-suffixes-in-english-1692725
 PREFIXES = "a,an,ab,ad,ac,as,ante,anti,auto,ben,bi,circum,co,com,con,contra,counter,de,di,dis,eu,ex,exo,ecto,extra,extro,fore,hemi,hyper,hypo,il,im,in,ir,inter,intra,macro,mal,micro,mis,mono,multi,non,ob,oc,op,omni,over,peri,poly,post,pre,pro,quad,re,semi,sub,sup,super,supra,sym,syn,trans,tri,ultra,un,uni"
-SUFFIXES = "s,d,es,ed,ing,acy,al,ance,ence,dom,er,or,ism,ist,ity,ty,ment,nes,ship,sion,tion,ate,en,ify,fy,ize,izes,ized,ise,ises,ised,able,ables,ability,ible,ibles,ibility,al,esque,ful,ic,ical,ious,ous,ish,ive,ives,les,y"
+SUFFIXES = "s,d,es,ed,in,ing,acy,al,ance,ence,dom,er,or,ism,ist,ity,ty,ment,nes,ship,sion,tion,ate,en,ify,fy,ize,izes,ized,ise,ises,ised,able,ables,ability,ible,ibles,ibility,al,esque,ful,ic,ical,ious,ous,ish,ive,ives,les,y"
 
 
 def dedup(s: str):
@@ -65,8 +83,7 @@ def detect_trigger(message):
         content = message
     else:
         content = message.content
-    if content.count('`') >= 2 or content.count('||') >= 2:
-        return None  # hmmm
+    content = remove_spoilers(content)
     nummap = {'0': 'o', '1': 'l', '2': 'z', '5': 's', '9': 'g'}  # 1=>I ?
     content = ''.join([nummap[c] if c in nummap else c for c in list(content)])
     content = re.sub(r"[^A-Za-z0-9\u0080-\uffff]", ' ', content)
@@ -145,7 +162,7 @@ def detect_ghost_ping(msg1, msg2=None):
     embed.add_field(name="Message",
                     value=msg1.content,
                     inline=True)
-    embed.timestamp = datetime.datetime.utcnow()
+    embed.timestamp = msg1.edited_at or msg1.created_at
     return embed
 
 

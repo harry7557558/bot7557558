@@ -34,7 +34,6 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    trigger.detect_ghost_ping(message)
 
     # Create a conflict with JOMD
     if message.content.startswith('+gimmie'):

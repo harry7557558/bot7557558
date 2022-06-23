@@ -5,6 +5,7 @@ import requests
 import json
 import re
 import datetime
+from trigger import remove_spoilers
 
 
 def request_headers(shader_id):
@@ -174,6 +175,8 @@ def generate_embed(shader_id: str):
     shader = get_shader(shader_id)
     if shader is None:
         return None
+    with open(".shader.temp", "w") as fp:  # so I can pull out and debug later
+        json.dump(shader, fp)
     info = shader['info']
     title = info['name']
     author = info['username']
@@ -239,9 +242,11 @@ def generate_embed(shader_id: str):
     for renderpass in shader['renderpass']:
         name = renderpass['name']
         name = name.replace("Buf ", "Buffer ")
+        if name == "":
+            name = "Image"
         assert name in orders
         code = minify_code(renderpass['code'])
-        open(".temp", "w").write(minify_code(code))  # so I can check for bug
+        open(".code.temp", "w").write(minify_code(code))  # check for bug
         passes.append({
             "name": name,
             "chars": len(code)
@@ -308,7 +313,8 @@ def parse_message_links(message):
 
 
 async def message_main(message):
-    graph_embeds = parse_message_links(message.content)
+    content = remove_spoilers(message.content)
+    graph_embeds = parse_message_links(content)
     if len(graph_embeds) != 0:
         for embed in graph_embeds:
             await message.channel.send(embed=embed)

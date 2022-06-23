@@ -7,6 +7,7 @@ import html
 import json
 import email.utils
 import datetime
+from trigger import remove_spoilers
 
 
 def get_graph_info(url, state_required=True):
@@ -173,10 +174,9 @@ def parse_message_links(message, check_history: bool):
 
 
 async def message_main(message):
-    if message.content.count("||") >= 2:
-        return
-    check_history = "history" in message.content.lower()
-    graph_embeds = parse_message_links(message.content, check_history)
+    content = remove_spoilers(message.content)
+    check_history = "history" in content.lower()
+    graph_embeds = parse_message_links(content, check_history)
     if len(graph_embeds) != 0:
         for embed in graph_embeds:
             await message.channel.send(embed=embed)
