@@ -5,6 +5,7 @@ import requests
 import json
 import re
 import datetime
+import time
 from trigger import remove_spoilers
 
 
@@ -193,7 +194,8 @@ def generate_embed(shader_id: str):
         3: "public+api"
     }[info['published']]
     footer = " • ".join([tags, status])
-    thumb_url = f"https://www.shadertoy.com/media/shaders/{shader_id}.jpg"
+    thumb_url = f"https://www.shadertoy.com/media/shaders/{shader_id}.jpg?t={int(time.time())}"
+    print(thumb_url)
     author_url = f"https://www.shadertoy.com/user/{author}"
     author_icon_url = "https://www.shadertoy.com/img/profile.jpg"
     for ext in ['png', 'jpg', 'jpeg', 'webp']:
