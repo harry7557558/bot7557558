@@ -195,10 +195,9 @@ def generate_embed(shader_id: str):
     }[info['published']]
     footer = " • ".join([tags, status])
     thumb_url = f"https://www.shadertoy.com/media/shaders/{shader_id}.jpg?t={int(time.time())}"
-    print(thumb_url)
     author_url = f"https://www.shadertoy.com/user/{author}"
     author_icon_url = "https://www.shadertoy.com/img/profile.jpg"
-    for ext in ['png', 'jpg', 'jpeg', 'webp']:
+    for ext in ['png', 'jpeg', 'jpg']:
         url = f"https://www.shadertoy.com/media/users/{author}/profile.{ext}"
         r = requests.get(url, headers=request_headers(shader_id))
         print("Request", url, "-", r.status_code)

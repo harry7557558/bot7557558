@@ -6,6 +6,7 @@ import hello
 import polynomial
 import desmos
 import shadertoy
+import text_preview
 import trigger
 
 
@@ -32,6 +33,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if os.name == 'nt' and message.guild.id != 822212636619309056:
+        return  # testing
     if message.author == client.user:
         return
 
@@ -40,10 +43,11 @@ async def on_message(message):
         await message.channel.send(":monkey:")
         return
 
-    # What the heck?
-    if message.content.startswith('$hello'):
-        await hello.send_hello_message(message)
-        return
+    # :eyes:
+    for start in "$+=,.;?!^&%\\/~-":
+        if message.content.lower().startswith(start+'hello'):
+            await hello.send_hello_message(message)
+            return
 
     # Mathy stuff
     if message.content.startswith('poly '):
@@ -56,6 +60,7 @@ async def on_message(message):
     # Desmos/Shadertoy stuff
     await desmos.message_main(message)
     await shadertoy.message_main(message)
+    await text_preview.message_main(client, message)
 
     # Keep this at the end
     triggered_embed = trigger.detect_trigger(message)
@@ -89,6 +94,8 @@ async def on_message_delete(message):
 
 
 if __name__ == "__main__":
+    intents = discord.Intents()
+    intents.messages = True
     try:
         # my local Windows
         client.run(open(".token").read())
