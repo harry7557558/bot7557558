@@ -127,7 +127,9 @@ async def preview_github_line_link(message):
             f"`{relative_path}` in `{username}/{repo}/{branch}`.",
             source
         ]).strip()
-        await message.channel.send(description)
+        await message.channel.send(
+            description,
+            allowed_mentions=discord.AllowedMentions.none())
 
     async def process_gist(username, gist_id, file_line):
         # get file ID and line range from hash
@@ -166,7 +168,9 @@ async def preview_github_line_link(message):
             f"`{raw_url[raw_url.rfind('/')+1:]}` by `{username}`{description}.",
             preview_source(raw_url, req.text, line_range)
         ]
-        await message.channel.send('\n'.join(lines).strip())
+        await message.channel.send(
+            '\n'.join(lines).strip(),
+            allowed_mentions=discord.AllowedMentions.none())
 
     # get matches
     source_matches = re.findall(
