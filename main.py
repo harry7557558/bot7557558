@@ -4,6 +4,7 @@ import datetime
 
 import hello
 import polynomial
+import word_count
 import desmos
 import shadertoy
 import text_preview
@@ -55,6 +56,15 @@ async def on_message(message):
         expr = expr.strip().strip('`')
         expanded = '`' + polynomial.polyeval(expr) + '`'
         await send_text_message(message.channel, expanded)
+        return
+
+    # Word stats
+    command = message.content.split(' ')[0].lower()
+    if command != '' and command[0] in ['+', '$'] and \
+        ('word' in command or 'code' in command or 'char' in command) and \
+            ('count' in command or 'stat' in command):
+        print(command)
+        await word_count.message_main(message)
         return
 
     # Desmos/Shadertoy stuff
