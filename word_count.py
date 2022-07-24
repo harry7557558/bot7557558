@@ -165,6 +165,7 @@ def stats_words_message(message: str):
         return None
     message0, message = message, []
     for seg in message0:
+        seg = seg.strip('`').strip('"').strip("'")
         if seg.strip() == '':
             continue
         elif re.match(url_regex, seg):
@@ -186,6 +187,7 @@ def stats_words_message(message: str):
         cur = message[i].strip(',').strip(';').strip('.').strip("'").strip('"')
         if re.match(url_regex, cur):
             url = cur if url is None else url
+            continue
         if cur.isnumeric() and not re.match(url_regex, prev):
             cur = int(cur)
             if 'min' in prev or ('char' in prev and i > 3):
@@ -206,6 +208,10 @@ def stats_words_message(message: str):
     if url is None:
         raise ValueError("No URL detected.")
     ext = url.split('.')[-1].lower()
+    if '#' in ext:
+        ext = ext[:ext.index('#')]
+    if '?' in ext:
+        ext = ext[:ext.index('?')]
     is_source = ext in ['js', 'json', 'css', 'py', 'c', 'cpp', 'h', 'glsl']
     if count_fun is None:
         if 'char' in command:
