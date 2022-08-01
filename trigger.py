@@ -5,6 +5,7 @@ import re
 import datetime
 import base64
 import json
+import unicodedata
 
 
 def remove_spoilers(content: str) -> str:
@@ -125,18 +126,31 @@ def detect_trigger(message):
     else:
         content = message.content
     content = remove_spoilers(content)
+    content = unicodedata.normalize('NFKD', content)  # the best I can do
+    content = str(content.encode('ascii', 'ignore').decode('utf-8'))
     nummap = {'0': 'o', '1': 'l', '2': 'z', '5': 's', '9': 'g'}  # 1=>I ?
     content = ''.join([nummap[c] if c in nummap else c for c in list(content)])
     content = re.sub(r"[^A-Za-z0-9\u0080-\uffff]", ' ', content)
     content = re.sub(r"\s+", ' ', content)
     words = content.split()
 
-    # detect triggers
-    # triggers_o = b">9\\!+H6OmaF*2OJ/0\\\\K@r!8>,'S-@+tOpSD.[3p+tOpVD.[E)/0].KBlkOM,%>\\2Cia9(F<W7[F(f90E,Tf>+tOpWASu4'+tOpJF`):F>l"
-    triggers_o = b">9\\!+H6OmaAp%U!+tOpVD.[E)/0].KBlkOM,%>\\2Cia9(F<W7[F(f90E,Tf>+tOpWASu4'+tOpJF`):F>l"
+    # initialize trigger list
+    # triggers_o = b"DfU.TAp%U!/8]<IBOu3rF^o2<GB@FJCi*cmD_,gDAnNZ9BPDQ>@WcL'F(f90/9>K=FDu/>F=_BBDJ=/C@s)[2"
+    triggers_o = b'DfU.TAp%U!/8]<IBOu3rF^o2<Df\'*!/9>K=F=^mDCi"0+BlknIBPDR-Df^"OE+Np$F"CgDDKG'
     triggers = {}
-    for trigger in json.loads(base64.a85decode(triggers_o).decode('utf-8')):
+    for trigger in base64.a85decode(triggers_o).decode('utf-8').split(','):
         triggers[dedup(trigger)] = trigger
+    for trigger in triggers.keys():
+        for (key, value) in triggers.items():
+            if trigger != key and trigger in value:
+                triggers[key] = trigger
+    for key in triggers.keys():
+        if 'f' in triggers[key][1:]:
+            triggers[key] = triggers[key].replace('f', '*')
+        elif triggers[key][0] not in "aeiou":
+            triggers[key] = re.sub(r"[aeiou]", '*', triggers[key], count=1)
+
+    # detect triggers
     keywords = {}
     for word in words:
         word = dedup(word)
@@ -163,6 +177,7 @@ def detect_trigger(message):
             keywords[keyword] = keyword
         else:
             keywords[keyword] = keyword + f"(×{count})"
+    keywords = ', '.join(list(keywords.values()))
 
     # apply trigger
     content = message.content[:600]
@@ -175,8 +190,8 @@ def detect_trigger(message):
     embed.add_field(name="Message",
                     value=content,
                     inline=True)
-    embed.add_field(name="Trigger"+'s'*(len(keywords) > 1),
-                    value=', '.join(list(keywords.values())),
+    embed.add_field(name="Trigger"+'s'*(keywords.count(',') > 0),
+                    value=keywords.replace('*', '\\*'),
                     inline=True)
     embed.timestamp = datetime.datetime.utcnow()
     return embed
@@ -223,4 +238,6 @@ def detect_ghost_ping(msg1, msg2=None):
 
 # örz
 if __name__ == "__main__":
-    detect_trigger("Let's reorz the orzing orzness of orziful Moana! Orz!")
+    detect_trigger(
+        "Let's reorz the orzing orzness of orziful Moana! "
+        "Orz! Õȑż! Οɍɀ! 〇rz! ０ｒｚ！")
