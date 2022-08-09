@@ -1,5 +1,6 @@
 import discord
 import os
+import sys
 import datetime
 
 import hello
@@ -30,6 +31,11 @@ async def on_ready():
     print(message)
     channel = client.get_channel(947155714059665458)
     await channel.send(message)
+    # keep replit alive
+    try:
+        __import__("keep_alive").keep_alive()
+    except BaseException as e:
+        print("Failed to run `keep_alive`:", e)
 
 
 @client.event
@@ -111,5 +117,7 @@ if __name__ == "__main__":
         client.run(open(".token").read())
     except:
         # repl.it
-        __import__("keep_alive").keep_alive()
-        client.run(os.getenv('TOKEN'))
+        try:
+            client.run(os.getenv('TOKEN'))
+        except:  # rate limited
+            os.system("kill 1")
