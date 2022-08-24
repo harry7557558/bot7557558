@@ -8,6 +8,17 @@ import html
 import random
 
 
+def is_hello(content):
+    """Check if a message triggers hello"""
+    content = content.replace(' ', '')
+    if content == '':
+        return False
+    if content[0] not in "$+=,.;?!^&%\\/~-":
+        return False
+    return content[1:].startswith("hello") or \
+        content[1:].startswith("helo")
+
+
 _idum = random.randrange(0, 2**32)
 
 
@@ -29,16 +40,22 @@ def quasi_random():
     return van_der_corput(_idum, 2)
 
 
+RequestCache = {}
+
+
 def get_site_objects(url: str) -> dict:
     """Get quote or link list from https://harry7557558.github.io/"""
     assert url in ["https://harry7557558.github.io/src/quotes.json",
                    "https://harry7557558.github.io/src/links.json"]
 
     # fetch data
-    req = requests.get(url)
-    if req.status_code != 200:
-        return f"Status code {req.status_code}"
-    content = json.loads(req.content)
+    if url in RequestCache:
+        content = RequestCache[url]
+    else:
+        req = requests.get(url)
+        print(url, '-', req.status_code)
+        content = json.loads(req.content)
+        RequestCache[url] = content
 
     # get a list of probabilities
     items = []
@@ -120,12 +137,21 @@ async def send_hello_message(message):
     else:  # link
         text = object['alt'] + '\n' + object['text']
 
+    # random coin/dice
+    randint = random.randint(1, 60)
+    footer = ' • '.join([
+        'heads' if randint % 2 == 0 else 'tails',
+        f"{str(randint % 6 + 1)}/6 dice",
+        f"{str(randint)}/60",
+    ])
+
     # send object
     embed = discord.Embed(title="harry7557558 - Home Page", color=0x2020a0)
     embed.url = "https://harry7557558.github.io/"
     embed.description = text
     embed.set_thumbnail(
         url=" https://harry7557558.github.io/src/snowflake.jpg")
+    embed.set_footer(text=footer)
     await message.channel.send(embed=embed)
 
 

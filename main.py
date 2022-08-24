@@ -51,10 +51,9 @@ async def on_message(message):
         return
 
     # :eyes:
-    for start in "$+=,.;?!^&%\\/~-":
-        if message.content.lower().startswith(start+'hello'):
-            await hello.send_hello_message(message)
-            return
+    if hello.is_hello(message.content):
+        await hello.send_hello_message(message)
+        return
 
     # Mathy stuff
     if message.content.startswith('poly '):

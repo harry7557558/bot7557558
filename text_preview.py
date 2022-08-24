@@ -29,7 +29,7 @@ async def preview_discord_message_link(client, message):
             # get message summary
             channel = message.channel.mention
             author = message.author.mention
-            timestamp = message.edited_at or message.created_at
+            timestamp = message.created_at
             content = message.content
             if len(content) > 1024:
                 content = content[:1000] + '...'
@@ -51,15 +51,16 @@ async def preview_discord_message_link(client, message):
                 attachments = []
             # embeds
             embeds = [embed for embed in message.embeds]
-            if len(embeds) > 0 and content == "":  # embed-only message
-                content = f"***Message has {len(embeds)} embed" + \
+            if len(embeds) > 0:  # embed-only message
+                content += f"\n\n***Message has {len(embeds)} embed" + \
                     's'*(len(embeds) > 1) + ".***"
 
             # generate embed
             embed = discord.Embed(color=0xddbbdd)
             embed.url = f"https://discord.com/channels/{guild_id}/{channel_id}/{message_id}"
             embed.description = content
-            embed.set_footer(text=f"Message preview")
+            embed.set_footer(text=f"Message preview" +
+                             " (edited)" * int(message.edited_at is not None))
             if image is not None:
                 embed.set_image(url=image)
             embed.timestamp = timestamp

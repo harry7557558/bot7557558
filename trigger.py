@@ -108,6 +108,37 @@ def generate_trigger_suffices():
 CHECK_PREFICES = sorted(PREFICES.split(','), key=lambda word: -len(word))
 CHECK_SUFFICES = None
 
+# Not perfect
+UNICODE_CONFUSABLES = {
+    'a': 'АΑᗅаꓮ⍺ȺѦɑᎪα',
+    'b': 'ᖯƄЪɃѣҍƁҌƀᏏᗷƃɓВЬΒѢꓐƂБᏴƅ',
+    'c': 'ȻꓚҀҁௐᴄЄϾΣҪᏟςсⲤƈɕ¢ȼСҫƇⲥ',
+    'd': 'ꓒᎠԁÐᗪᑻ₫ᗞĐȡᑯƊđƉɗɖƌꓓ',
+    'e': 'еҽΕҿⴹɆꓰɇ⋿Ꭼ℮Е',
+    'f': 'ꓝẝᖴƒƑϜք',
+    'g': 'ցᏳƓɡᶃǥԌᏀꓖǤƍɠ',
+    'h': 'ӉᏂԨիНᏲɧћӇᕼɦĦħⲎᎻҤհⱧΗꓧһҢ',
+    'i': 'ιɨіɪı⍳ƗᎥӀΙɩІӏ',
+    'j': 'ЈȷɟјɈᒙᎫյɉᏧᒍϳꓙ',
+    'k': 'ⲔƙⱩқΚҟҠĸᴋᏦκꓗкКҞϏԟԞƘⲕҜӃҚ',
+    'l': 'ŁꓡⳐⵏᏞᒪȽߊו|ꓲ│Ⲓ∣ΙᒷІƚƖɭǀɬ1ױƗԼӀłןɫ',
+    'm': 'ⲘɱᗰΜꓟᎷӎӍϺМ',
+    'n': 'ƞπΝրղոŋƝⲚꓠɲηпդɳռʼᴨИҊ',
+    'o': '〇ծ⍬ө0௦ංѻಂØɵΟⵔᎾƟ٥૦໐ѳѲ⊖ᴑס೦ⴱ๐օσΘՕ߀⊝ϙ০൦ᴏ੦ӨθОоⲟѺഠⲞø౦ဝꓳంο၀ം०୦ଠ',
+    'p': 'ᏢҏρᑷƿҎꓑƥРΡⲣрƤᑭϼⲢ⍴',
+    'q': 'ԛգʠɊԚզɋ',
+    'r': 'ɌᎡⲅɍɼꓣᴦɽЯᖇғᏒƦг',
+    's': 'ѕꓢՏꜱᏚȿƽЅᏕʂ$',
+    't': 'ƭԎҭƬŦƮТꓔŧƫҬᴛȾтᎢⲦ⟙τΤꜨ',
+    'u': 'ՄʋᑘᴜᑌՍƲսɄцꓴԱυ',
+    'v': 'ⴸѵ⋁ɣνѴᴠꓦטᏙ∨ᐯ',
+    'w': 'ѿѡᏔԝꓪᎳ₩Ԝω',
+    'x': '⤫ꓫҳ×ΧӽҖХ⨯ᕁχⲬⵝ᙮Ҳжх⨰Ӽ⤬᙭Жᕽҗӿ╳Ӿ',
+    'y': 'ƴᎩᶌꓬүγᎽƳⲨҮҰʏყɏұ¥ỿΥɎу',
+    'z': 'ƶʐƵᴢɀꓜᏃȤʑȥΖ'
+}
+UNICODE_CONFUSABLES_MAP = {}
+
 
 def detect_trigger(message):
     """Detect trigger in the message, returns embed if triggered"""
@@ -121,16 +152,31 @@ def detect_trigger(message):
         checked_messages[message.id] = message.content
 
     # get message content
-    if type(message) == str:  # debug
+    if isinstance(message, str):  # debug
         content = message
     else:
         content = message.content
     content = remove_spoilers(content)
-    content = unicodedata.normalize('NFKD', content)  # the best I can do
-    content = str(content.encode('ascii', 'ignore').decode('utf-8'))
+    content = re.sub(  # don't check URL
+        r"((http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-]))",
+        " ", content)
+    content = unicodedata.normalize('NFKD', content)  # "simplify" characters
+    content = re.sub(  # remove combining characters
+        r"[\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\.\,·]",
+        '', content)
+    if len(UNICODE_CONFUSABLES_MAP) == 0:  # initialize confusable character map
+        for (letter, confusables) in UNICODE_CONFUSABLES.items():
+            UNICODE_CONFUSABLES[letter] = letter
+            for confusable in confusables:
+                if confusable not in UNICODE_CONFUSABLES_MAP:
+                    UNICODE_CONFUSABLES_MAP[confusable] = letter
+    content = ''.join([  # map confusable characters
+        UNICODE_CONFUSABLES_MAP[c] if c in UNICODE_CONFUSABLES_MAP else c
+        for c in content])
     nummap = {'0': 'o', '1': 'l', '2': 'z', '5': 's', '9': 'g'}  # 1=>I ?
     content = ''.join([nummap[c] if c in nummap else c for c in list(content)])
-    content = re.sub(r"[^A-Za-z0-9\u0080-\uffff]", ' ', content)
+    content = re.sub(r"[\u0080-\uffff]", ' ', content)  # remove Unicode
+    content = re.sub(r"[^A-Za-z0-9]", ' ', content)  # letter/digit-only
     content = re.sub(r"\s+", ' ', content)
     words = content.split()
 
@@ -180,6 +226,9 @@ def detect_trigger(message):
     keywords = ', '.join(list(keywords.values()))
 
     # apply trigger
+    if isinstance(message, str):
+        print(content)
+        return
     content = message.content[:600]
     if content != message.content:
         content += "..."
@@ -240,4 +289,4 @@ def detect_ghost_ping(msg1, msg2=None):
 if __name__ == "__main__":
     detect_trigger(
         "Let's reorz the orzing orzness of orziful Moana! "
-        "Orz! Õȑż! Οɍɀ! 〇rz! ０ｒｚ！")
+        "Orz! Õȑż! Οɍɀ! 〇rz! ０ｒｚ！ e⁻ᶴᵒʳᶻ⁽ˣ⁾ᵈˣ!")

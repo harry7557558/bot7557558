@@ -114,7 +114,8 @@ def generate_embed(graph_id, check_history: bool):
     embed = discord.Embed(title=title, color=0x107030)
     embed.set_author(name="Desmos")
     embed.url = url
-    embed.set_thumbnail(url=thumbnail)
+    # embed.set_thumbnail(url=thumbnail)
+    embed.set_image(url=thumbnail)
     embed.set_footer(text=hash)
     embed.timestamp = time
 
