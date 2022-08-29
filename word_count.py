@@ -93,14 +93,17 @@ def stats_words_url(text_url, count_fun, num_words, min_length, phrase_length):
 
     # get text
     print("Request", text_url)
-    req = requests.get(text_url, headers={
+    req = requests.get(
+        text_url,
+        headers={
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
         'accept': '*/*',
         'accept-language': 'en-US,en;q=0.5',
         'cache-control': 'no-cache',
         'content-type': 'application/x-www-form-urlencoded',
         'pragma': 'no-cache'
-    })
+    },
+        timeout=(10, 10))
     if req.status_code >= 400:
         raise ValueError(f"Request URL returns {req.status_code}.")
     content_type = req.headers['content-type'].lower()

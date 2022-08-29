@@ -10,7 +10,7 @@ import random
 
 def is_hello(content):
     """Check if a message triggers hello"""
-    content = content.replace(' ', '')
+    content = content.lower().replace(' ', '')
     if content == '':
         return False
     if content[0] not in "$+=,.;?!^&%\\/~-":
@@ -137,12 +137,11 @@ async def send_hello_message(message):
     else:  # link
         text = object['alt'] + '\n' + object['text']
 
-    # random coin/dice
-    randint = random.randint(1, 60)
+    # independent random coin/dice
     footer = ' • '.join([
-        'heads' if randint % 2 == 0 else 'tails',
-        f"{str(randint % 6 + 1)}/6 dice",
-        f"{str(randint)}/60",
+        'heads' if random.random() < 0.5 else 'tails',
+        f"{str(random.randint(1, 6))}/6 dice",
+        f"{str(random.randint(1, 60))}/60",
     ])
 
     # send object

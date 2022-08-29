@@ -1,0 +1,6 @@
+_*
+.*
+replit.*
+venv/
+__pycache__/
+poetry.lock

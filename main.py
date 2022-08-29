@@ -47,7 +47,7 @@ async def on_message(message):
 
     # Create a conflict with JOMD
     if message.content.startswith('+gimmie'):
-        await message.channel.send(":monkey:")
+        await message.channel.send("<:moana:884504102543982632>")
         return
 
     # :eyes:
