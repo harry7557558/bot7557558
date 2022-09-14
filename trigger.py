@@ -30,12 +30,6 @@ def remove_spoilers(content: str) -> str:
 checked_messages = {}
 
 
-# https://www.englishhints.com/list-of-prefixes.html
-# https://www.thoughtco.com/common-suffixes-in-english-1692725
-PREFICES = "a,an,ab,ad,ac,as,ante,anti,auto,ben,bi,circum,co,com,con,contra,counter,de,di,dis,eu,ex,exo,ecto,extra,extro,fore,hemi,hyper,hypo,il,im,in,ir,inter,intra,macro,mal,micro,mis,mono,multi,non,ob,oc,op,omni,over,peri,poly,post,pre,pro,quad,re,semi,sub,sup,super,supra,sym,syn,trans,tri,ultra,un,uni"
-SUFFICES = "s,d,es,ed,in,ing,acy,al,ance,ence,dom,er,or,ism,ist,ity,ty,ment,nes,ship,sion,tion,ate,en,ify,fy,ize,ise,able,ability,ible,ibility,al,esque,ful,ic,ical,icate,ion,ious,ous,ish,ive,les,y"
-
-
 def dedup(s: str):
     """Remove the consecutive letters of a word"""
     # remove consecutive letters
@@ -47,66 +41,10 @@ def dedup(s: str):
     return t
 
 
-def expand_suffices(word: str, iterations=3):
-    # repeat adding suffices
-    if iterations > 1:
-        words = set([word])
-        new_words = [word]
-        for i in range(iterations):
-            added_words = set({})
-            for word in new_words:
-                added_words = added_words.union(expand_suffices(word, 1))
-            new_words = []
-            for new_word in added_words:
-                if len(new_word) > 16:
-                    continue
-                if new_word not in words:
-                    new_words.append(new_word)
-                words.add(new_word)
-        return words
-
-    # adding one suffix
-    assert len(word) > 2
-    new_words = []
-    for suffix in SUFFICES.split(','):
-        if suffix[0] in 'aeiouy':
-            if word[-1] in 'aeiouy' and word[-2] not in 'aeiou':
-                new_words.append(word[:-1]+suffix)
-            if word[-1] not in 'aeiou':
-                new_words.append(word+suffix)
-        else:
-            if word[-1] == 'y':
-                new_words.append(word[:-1]+'i'+suffix)
-                new_words.append(word[:-1]+'ie'+suffix)
-            else:
-                new_words.append(word+suffix)
-    new_words = [dedup(word) for word in new_words]
-    new_words = set(new_words)
-    return new_words
-
-
-def generate_trigger_suffices():
-    """Generate a list of possible suffices of triggers"""
-    filename = ".trigger-suffices"
-    # load from file
-    try:
-        suffices = open(filename, 'r').read().split(' ')
-        assert len(suffices) > 1
-        return suffices
-    # generate and save file (takes a while)
-    except:
-        word = "ash"  # an innocent 3-letter word
-        suffices = list(expand_suffices(word))
-        for i in range(len(suffices)):
-            suffices[i] = suffices[i][len(word):]
-        suffices = sorted(suffices)
-        print(len(suffices), "suffices generated")
-        open(filename, 'w').write(' '.join(suffices))
-        return suffices
-
-
-CHECK_PREFICES = sorted(PREFICES.split(','), key=lambda word: -len(word))
-CHECK_SUFFICES = None
+PREFICES = set(open("trigger-prefices.txt").read().split(' '))
+SUFFICES = set(open("trigger-suffices.txt").read().split(' '))
+PREFICES.add('')
+SUFFICES.add('')
 
 # Not perfect
 UNICODE_CONFUSABLES = {
@@ -142,8 +80,6 @@ UNICODE_CONFUSABLES_MAP = {}
 
 def detect_trigger(message):
     """Detect trigger in the message, returns embed if triggered"""
-    global CHECK_PREFICES, CHECK_SUFFICES
-
     if not isinstance(message, str):
         global checked_messages
         if type(message) is not str and message.id in checked_messages and \
@@ -200,18 +136,14 @@ def detect_trigger(message):
     keywords = {}
     for word in words:
         word = dedup(word)
-        for prefix in CHECK_PREFICES:
-            if word.startswith(prefix):
-                word = word[len(prefix):]
-                break
         for trigger in triggers:
-            if not word.startswith(trigger):
+            index = word.find(trigger)
+            if index == -1:
                 continue
-            if CHECK_SUFFICES is None:
-                CHECK_SUFFICES = generate_trigger_suffices()
-            if word == trigger or \
-                    word[len(trigger):] in CHECK_SUFFICES or \
-                    word[len(trigger)-1:] in CHECK_SUFFICES:
+            if (word[:index] in PREFICES or
+                word[:index+1] in PREFICES) and \
+                    (word[index+len(trigger):] in SUFFICES or
+                        word[index+len(trigger)-1:] in SUFFICES):
                 keyword = triggers[trigger]
                 if keyword not in keywords:
                     keywords[keyword] = 0
@@ -228,6 +160,7 @@ def detect_trigger(message):
     # apply trigger
     if isinstance(message, str):
         print(content)
+        print(keywords)
         return
     content = message.content[:600]
     if content != message.content:
