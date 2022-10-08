@@ -24,6 +24,9 @@ def remove_spoilers(content: str) -> str:
     content = re.sub(r"\|\|.*?\|\|", "", content, flags=re.S)
     content = re.sub(r"`.*?`", "", content, flags=re.S)
 
+    # start by an exclainmation mark to suppress link preview
+    content = re.sub(r"!(http|https|ftp)\:\/\/[^\s]+", "", content)
+
     return content
 
 
@@ -96,10 +99,17 @@ def detect_trigger(message):
     content = re.sub(  # don't check URL
         r"((http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-]))",
         " ", content)
-    content = unicodedata.normalize('NFKD', content)  # "simplify" characters
-    content = re.sub(  # remove combining characters
-        r"[\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\.\,·]",
-        '', content)
+    content1 = ""
+    for chr in content:
+        if ord(chr) < 0x80:
+            content1 += chr
+            continue
+        chr = unicodedata.normalize('NFKD', chr)  # "simplify" characters
+        chr = re.sub(  # remove combining characters
+            r"[\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\.\,·]",
+            '', chr)
+        content1 += chr
+    content = content1
     if len(UNICODE_CONFUSABLES_MAP) == 0:  # initialize confusable character map
         for (letter, confusables) in UNICODE_CONFUSABLES.items():
             UNICODE_CONFUSABLES[letter] = letter

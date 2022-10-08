@@ -139,9 +139,10 @@ async def send_hello_message(message):
 
     # independent random coin/dice
     footer = ' • '.join([
-        'heads' if random.random() < 0.5 else 'tails',
+        ['heads', 'tails'][random.randint(0, 1)],
         f"{str(random.randint(1, 6))}/6 dice",
         f"{str(random.randint(1, 60))}/60",
+        ['rock', 'paper', 'scissors'][random.randint(0, 2)],
     ])
 
     # send object

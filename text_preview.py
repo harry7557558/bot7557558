@@ -31,6 +31,7 @@ async def preview_discord_message_link(client, message):
             author = message.author.mention
             timestamp = message.created_at
             content = message.content
+            print(content)  # so I can expose formattings by checking log
             if len(content) > 1024:
                 content = content[:1000] + '...'
             # attachments

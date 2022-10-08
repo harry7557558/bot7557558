@@ -1,7 +1,5 @@
 import discord
 import os
-import sys
-import datetime
 
 import hello
 import polynomial
