@@ -6,6 +6,7 @@ import requests
 import json
 import html
 import random
+import os
 
 
 def is_hello(content):
@@ -44,9 +45,7 @@ RequestCache = {}
 
 
 def get_site_objects(url: str) -> dict:
-    """Get quote or link list from https://harry7557558.github.io/"""
-    assert url in ["https://harry7557558.github.io/src/quotes.json",
-                   "https://harry7557558.github.io/src/links.json"]
+    """Get quote or link list"""
 
     # fetch data
     if url in RequestCache:
@@ -101,7 +100,8 @@ def stat_site_objects(objects) -> str:
     for obj in objects:
         prob += obj['probability']**2
     lines.append(
-        "The probability of generating two consecutive same objects is {:.2f}%.".format(100.*prob))
+        "The probability of generating two consecutive same objects "
+        "with an independent PRNG is {:.2f}%.".format(100.*prob))
     # return
     return '\n'.join(lines)
 
@@ -109,8 +109,16 @@ def stat_site_objects(objects) -> str:
 async def send_hello_message(message):
     """Send a random quote from the website homepage"""
 
+    if os.name == 'nt':
+        root = "http://localhost:8000/src/"
+    else:
+        root = "https://harry7557558.github.io/src/"
     filename = "links.json" if "link" in message.content else "quotes.json"
-    objects = get_site_objects("https://harry7557558.github.io/src/"+filename)
+    url = root + filename
+    if "stat" in message.content:
+        global RequestCache
+        RequestCache = {}
+    objects = get_site_objects(url)
 
     # statistics
     if "stat" in message.content:
@@ -118,7 +126,9 @@ async def send_hello_message(message):
         with open('.hello.temp', 'wb') as fp:
             fp.write(bytearray(stats, 'utf-8'))
         with open(".hello.temp", "rb") as fp:
-            await message.channel.send(file=discord.File(fp, "stat.txt"))
+            await message.channel.send(
+                f"Statistics of `{url}`",
+                file=discord.File(fp, "stat.txt"))
         return
 
     # random quote/link

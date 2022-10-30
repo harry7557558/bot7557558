@@ -38,7 +38,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if os.name == 'nt' and message.guild.id != 822212636619309056:
+    if os.name == 'nt' and not (
+            isinstance(message.channel, discord.channel.DMChannel) or
+            message.guild.id == 822212636619309056):
         return  # testing
     if message.author == client.user:
         return
