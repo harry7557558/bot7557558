@@ -8,6 +8,7 @@ Training: least squares fitting (linear)
 """
 
 S, N = 4, 20000
+#S, N = 3, 2000
 
 
 import numpy as np
@@ -34,9 +35,11 @@ def lookup(word):
 def word_substrings(word):
     subs = []
     for s in range(1, S+1):
-        for i in range(-s+1, len(word)):
-            ss = ' '*max(-i,0) + word[max(i,0):min(i+s,len(word))] + ' '*max(i+s-len(word),0)
+        for i in range(0, len(word)-s+1):
+            ss = word[i:i+s]
             subs.append(ss)
+        if s == 1:
+            word = ' ' + word + ' '
     return subs
 
 

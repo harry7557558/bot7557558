@@ -1,5 +1,9 @@
 import requests
 
+import random
+random.seed(0)
+
+
 def clean_word(word):
     return ''.join([c for c in word.lower() if c.isalpha()])
 
@@ -71,9 +75,12 @@ if __name__ == "__main__":
     prons = load_prons()
     phones = load_phones()
 
-    words = ""
+    words = []
     for word in prons:
         count = count_word_syllables(word)
-        words += f"{word} {count}\n"
+        words.append(f"{word} {count}")
+    words.sort()
+    random.shuffle(words)
+    words = '\n'.join(words)
     open("data.txt", "w").write(words)
 
