@@ -20,7 +20,9 @@ async def send_text_message(channel, message):
         await channel.send(message)
 
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.messages = True
+client = discord.Client(intents=intents)
 
 
 @client.event
@@ -109,8 +111,6 @@ async def on_message_delete(message):
 
 
 if __name__ == "__main__":
-    intents = discord.Intents()
-    intents.messages = True
     try:
         # my local Windows
         client.run(open(".token").read())

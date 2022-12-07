@@ -97,7 +97,7 @@ async def preview_github_line_link(message):
             lines1 = ''
             for i in range(len(lines)):
                 line = lines[i]
-                if len(lines1)+len(line) < 1000 or len(lines)-i <= 1 or lines1 == '':
+                if len(lines1)+len(line) < 1600 or len(lines)-i <= 1 or lines1 == '':
                     lines1 += line + '\n'
                 else:
                     truncated = f"{len(lines)-i-1} more lines."
@@ -105,12 +105,16 @@ async def preview_github_line_link(message):
             lines = lines1.rstrip('\n')
         else:
             raise ValueError("Invalid line range: " + str(line_range))
-        if len(lines) > 1000:
-            lines = lines[:1000]
+        lines = lines.replace("```", "ˋˋˋ")
+        if len(lines) > 1600:
+            lines = lines[:1600]
             truncated = "Code truncated due to message length limitation."
         if lines.strip() == '':
             raise ValueError("Selected line(s) consist(s) of only whitespace.")
-        ext = raw_url.split('.')[-1]
+        ext = raw_url[:(raw_url+'?').find('?')].split('.')[-1]
+        extmap = {'ipynb': 'json', 'm': 'matlab'}
+        if ext in extmap:
+            ext = extmap[ext]
         if not re.match(r"^\w+$", ext):
             ext = ''
         source = "```{}\n{}\n```".format(ext, lines)
@@ -119,6 +123,7 @@ async def preview_github_line_link(message):
     async def process_source(username, repo, path, line_range):
         branch = path.split('/')[0]
         relative_path = '/'.join(path.split('/')[1:])
+        relative_path = relative_path[:(relative_path+'?').find('?')]
         raw_url = f"https://raw.githubusercontent.com/{username}/{repo}/{path}"
         print("Request", raw_url)
         req = requests.get(raw_url)
@@ -176,7 +181,7 @@ async def preview_github_line_link(message):
 
     # get matches
     source_matches = re.findall(
-        r"https?://(?:www\.)?github\.com/([\w\-]+)/([\w.,@^=%:~+-]*[\w@^=%~+-])/blob/([\w.,@^=%:~+-\/]*[\w@^=%~+-\/])#([L\d\-]*)",
+        r"https?://(?:www\.)?github\.com/([\w\-]+)/([\w.,@^=%:~+-]*[\w@^=%~+-])/blob/([\w.,@^=%:~+-\/\?]*[\w@^=%~+-\/\?])#([L\d\-]*)",
         message_content)
     gist_matches = re.findall(
         r"https?://gist\.github\.com/([\w\-]+)/([a-z0-9]+)/?#([\w.,@^=%:~+-]+)",
