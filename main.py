@@ -70,7 +70,6 @@ async def on_message(message):
     if command != '' and command[0] in ['+', '$'] and \
         ('word' in command or 'code' in command or 'char' in command) and \
             ('count' in command or 'stat' in command):
-        print(command)
         await word_count.message_main(message)
         return
 
