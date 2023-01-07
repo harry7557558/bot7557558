@@ -1,0 +1,1354 @@
+Log in     Show account info
+Close
+Account
+Logged in as:
+username
+Dashboard
+Publications
+Account settings
+Log out
+Access keys  NCBI Homepage  MyNCBI Homepage  Main Content  Main Navigation
+Search PMC Full-Text Archive
+Search in PMC
+Run this search in PubMed
+Advanced Search
+User Guide
+Journal List
+HHS Author Manuscripts
+PMC8025698
+Other Formats
+PubReader
+PDF (391K)
+Actions
+Cite
+Favorites
+Share
+Permalink
+Copy
+RESOURCES
+Similar articles
+Cited by other articles
+Links to NCBI Databases
+Journal List
+HHS Author Manuscripts
+PMC8025698
+Neuroscience. Author manuscript; available in PMC 2021 Oct 1.
+Published in final edited form as:
+Neuroscience. 2020 Oct 1; 445: 190-206.
+Published online 2020 Apr 29.  doi: 10.1016/j.neuroscience.2020.04.037
+PMCID: PMC8025698
+NIHMSID: NIHMS1687919
+PMID: 32360592
+FROM MECP2 TO EXCITATORY/INHIBITORY IMBALANCE AND NEURONAL CIRCUIT DEFECTS
+Michela Fagiolini , a, *  Annarita Patrizi , a, †  Jocelyn LeBlanc , a  Lee-Way Jin , b  Izumi Maezawa , b  Sarah Sinnett , c, d  Steven J. Gray , c, d  Sophie Molholm , e  John J. Foxe , f  Michael V. Johnston , g  Sakkubai Naidu , g  Mary Blue , g  Ahamed Hossain , g  Shilpa Kadam , g  Xinyu Zhao , h  Quiang Chang , h  Zhaolan Zhou , i and Huda Zoghbi j, k, l, m, n, o
+Michela Fagiolini
+a Children's Hospital Intellectual and Developmental Disabilities Research Center, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA
+Find articles by Michela Fagiolini
+Annarita Patrizi
+a Children's Hospital Intellectual and Developmental Disabilities Research Center, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA
+Find articles by Annarita Patrizi
+Jocelyn LeBlanc
+a Children's Hospital Intellectual and Developmental Disabilities Research Center, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA
+Find articles by Jocelyn LeBlanc
+Lee-Way Jin
+b UC Davis MIND Institute, University of California, Sacramento, CA, USA
+Find articles by Lee-Way Jin
+Izumi Maezawa
+b UC Davis MIND Institute, University of California, Sacramento, CA, USA
+Find articles by Izumi Maezawa
+Sarah Sinnett
+c UNC Intellectual and Developmental Disabilities Research Center, University of North Carolina, Gene Therapy Center and Dept. of Ophthalmology, Chapel Hill, NC, USA
+d Department of Pediatrics, UT Southwestern Medical Center, Dallas, TX, USA
+Find articles by Sarah Sinnett
+Steven J. Gray
+c UNC Intellectual and Developmental Disabilities Research Center, University of North Carolina, Gene Therapy Center and Dept. of Ophthalmology, Chapel Hill, NC, USA
+d Department of Pediatrics, UT Southwestern Medical Center, Dallas, TX, USA
+Find articles by Steven J. Gray
+Sophie Molholm
+e The Cognitive Neurophysiology Laboratory, Departments of Pediatrics, Neuroscience, and Psychiatry and Behavioral Sciences, Albert Einstein College of Medicine, Bronx, NY, USA
+Find articles by Sophie Molholm
+John J. Foxe
+f The Cognitive Neurophysiology Laboratory, Ernest J. Del Monte Institute for Neuroscience, Department of Neuroscience, University of Rochester School of Medicine and Dentistry, Rochester, NY, USA
+Find articles by John J. Foxe
+Michael V. Johnston
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+Find articles by Michael V. Johnston
+Sakkubai Naidu
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+Find articles by Sakkubai Naidu
+Mary Blue
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+Find articles by Mary Blue
+Ahamed Hossain
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+Find articles by Ahamed Hossain
+Shilpa Kadam
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+Find articles by Shilpa Kadam
+Xinyu Zhao
+h Waisman Center, University of Wisconsin-Madison, Madison, WI, USA
+Find articles by Xinyu Zhao
+Quiang Chang
+h Waisman Center, University of Wisconsin-Madison, Madison, WI, USA
+Find articles by Quiang Chang
+Zhaolan Zhou
+i Department of Genetic, Epigenetic Institute, University of Pennsylvania Perelman School of Medicine, Intellectual and Developmental Disabilities Research Center, Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA
+Find articles by Zhaolan Zhou
+Huda Zoghbi
+j Jan and Dan Duncan Neurological Research Institute at Texas Children's Hospital, Houston, TX, USA
+k Department of Molecular and Human Genetics, Baylor College of Medicine, Houston, TX, USA
+l Program in Developmental Biology, Baylor College of Medicine, Houston, TX, USA
+m Department of Pediatrics, Baylor College of Medicine, Houston, TX, USA
+n Department of Neuroscience, Baylor College of Medicine, Houston, TX, USA
+o Howard Hughes Medical Institute, Baylor College of Medicine, Houston, TX, USA
+Find articles by Huda Zoghbi
+Author information  Copyright and License information  Disclaimer
+a Children's Hospital Intellectual and Developmental Disabilities Research Center, Boston Children's Hospital, Harvard Medical School, Boston, MA, USA
+b UC Davis MIND Institute, University of California, Sacramento, CA, USA
+c UNC Intellectual and Developmental Disabilities Research Center, University of North Carolina, Gene Therapy Center and Dept. of Ophthalmology, Chapel Hill, NC, USA
+d Department of Pediatrics, UT Southwestern Medical Center, Dallas, TX, USA
+e The Cognitive Neurophysiology Laboratory, Departments of Pediatrics, Neuroscience, and Psychiatry and Behavioral Sciences, Albert Einstein College of Medicine, Bronx, NY, USA
+f The Cognitive Neurophysiology Laboratory, Ernest J. Del Monte Institute for Neuroscience, Department of Neuroscience, University of Rochester School of Medicine and Dentistry, Rochester, NY, USA
+g Kennedy Krieger Institute Intellectual and Developmental Disabilities Research Center/Hugo Moser Research Institute at Kennedy Krieger and Johns Hopkins School of Medicine, USA
+h Waisman Center, University of Wisconsin-Madison, Madison, WI, USA
+i Department of Genetic, Epigenetic Institute, University of Pennsylvania Perelman School of Medicine, Intellectual and Developmental Disabilities Research Center, Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA
+j Jan and Dan Duncan Neurological Research Institute at Texas Children's Hospital, Houston, TX, USA
+k Department of Molecular and Human Genetics, Baylor College of Medicine, Houston, TX, USA
+l Program in Developmental Biology, Baylor College of Medicine, Houston, TX, USA
+m Department of Pediatrics, Baylor College of Medicine, Houston, TX, USA
+n Department of Neuroscience, Baylor College of Medicine, Houston, TX, USA
+o Howard Hughes Medical Institute, Baylor College of Medicine, Houston, TX, USA
+† Current address: Schaller Research Group Leader at the German Cancer Research Center (DKFZ), Heidelberg 69120, Germany.
+* Corresponding author. Address: F.M. Kirby Neurobiology Center, Boston Children's Hospital (CLS 13034), 300 Longwood Avenue, Boston, MA 02115, USA. ude.dravrah.snerdlihc@iniloigaf.alehcim (M. Fagiolini).
+Copyright notice
+Keywords:
+neurodevelopmental disorders, translational, animal models, biomarkers, signaling pathways
+INTRODUCTION
+MECP2 PROTEIN FUNCTION
+EFFECTS OF MECP2 DYSFUNCTION ON NEUROGENESIS AND NEURONAL MATURATION
+MECP2 AND SYNAPTIC PLASTICITY
+MECP2 AND GLIA
+Dysfunction of astrocytes in RTT
+Microglia in RTT
+MECP2 AND CORTICAL PROCESSING
+Visual cortical processing in murine and human RTT
+Auditory cortical processing in murine and human RTT
+BIOMARKERS FOR MECP2 RELATED DISORDERS
+PRECLINICAL EFFICACY OF NEW THERAPIES
+Benefits of deep brain stimulation
+MANIPULATION OF NMDAR SIGNALING: LOW DOSE KETAMINE
+Valproic acid (VPA) treatment in RTT
+Gene therapy/viral vector-mediated gene transfer in RTT
+Reactivating the silent healthy copy of MECP2
+TACKLING MDS
+FROM BENCH TO BEDSIDE
+PATH FORWARD
+ACKNOWLEDGEMENTS
+(Frozen) - Wikipedia
+Open main menu
+Home
+Random
+Nearby
+Log in
+Settings
+Donate
+About Wikipedia
+Disclaimers
+Search
+Elsa ( Frozen )
+Article  Talk
+Language
+Watch
+Edit
+Elsa
+Frozen character
+Elsa as she appears in Frozen (2013).
+First appearance
+Frozen (2013)
+Created by
+Chris Buck
+Jennifer Lee
+Portrayed by
+Caissie Levy
+( Frozen: Musical )
+Voiced by
+Idina Menzel  (adult)
+Frozen : [1]
+Eva Bella  (8-year-old)
+Spencer Ganus (12-year-old)
+Frozen II : [2]
+Mattea Conforti  (young Elsa)
+Eva Bella (young Elsa, archive audio)
+Age
+8 to 24 years [2]
+Birth date
+Winter Solstice (December 21-22) [3] [4] [5] [6]
+Inspired by
+The Snow Queen from the Hans Christian Andersen  fairy tale
+In-universe information
+Title
+Protector of the Enchanted Forest (after abdication)
+Queen of Arendelle (from succession to the throne until abdication)
+Princess of Arendelle (at birth)
+Family
+King Runeard (grandfather) [7]
+King Agnarr [8]  (father)
+Queen Iduna [8]  (mother)
+Anna  (sister)
+Olaf  (creation)
+Marshmallow (creation)
+Snowgies (creations)
+Nationality
+Kingdom of Arendelle
+Contents
+1  Development  1.1  Origins and concept
+1.2  Voice
+1.3  Design and characterization  1.3.1  Abilities
+2  International versions
+3  Appearances  3.1  Films  3.1.1  Frozen
+3.1.2  Frozen Fever
+3.1.3  Olaf's Frozen Adventure
+3.1.4  Frozen II
+3.1.5  Ralph Breaks the Internet
+3.2  Miscellaneous  3.2.1  Merchandise
+3.2.2  Theme parks
+3.2.3  Cosplay
+3.2.4  Once Upon a Time
+3.2.5  Broadway musical
+4  Reception  4.1  Critical reviews  4.1.1  "Let It Go"
+4.2  Elsa's mental illness
+4.3  Accolades
+5  References
+6  Further reading
+7  External links
+Development Edit
+Origins and concept Edit
+Voice Edit
+Design and characterization Edit
+Abilities Edit
+International versions Edit
+Appearances Edit
+Films Edit
+Frozen Edit
+Frozen Fever Edit
+Main article: Frozen Fever
+Olaf's Frozen Adventure Edit
+Main article: Olaf's Frozen Adventure
+Frozen II Edit
+Main article: Frozen II
+Ralph Breaks the Internet Edit
+Main article: Ralph Breaks the Internet
+Miscellaneous Edit
+Merchandise Edit
+Theme parks Edit
+Cosplay Edit
+Once Upon a Time Edit
+Broadway musical Edit
+Reception Edit
+Critical reviews Edit
+"Let It Go" Edit
+Main article: Let It Go
+Elsa's mental illness Edit
+Accolades Edit
+References Edit
+Lee, Jennifer (September 23, 2013). " Frozen ' s Final Shooting Draft"  (PDF) . Walt Disney Animation Studios . Archived from the original  (PDF) on April 1, 2014 . Retrieved February 20, 2014 .
+^ a  b  "Frozen II Press Kit"  (PDF) . Disney Enterprises, Inc. 2019. Archived  (PDF) from the original on November 15, 2019 . Retrieved December 5, 2019 .
+^  @alittlejelee (September 2, 2014). "@MarianaDeLama For all who've asked, here's an exclusive: Elsa was born on the Winter Solstice & Anna on the Summer Solstice. #AskFrozen" (Tweet) - via Twitter .
+^  @alittlejelee (December 21, 2019). "Happy Birthday, ELSA!" (Tweet) - via Twitter .
+^  "An ice day to celebrate the Snow Queen" . Official Disney Tumblr page. December 22, 2015 . Retrieved December 22, 2019 .
+^  @DisneyStudiosIN (December 21, 2019). "Family, friends, cake and Bruni! Seems like Elsa is having the best birthday, ever!" (Tweet) - via Twitter .
+^  Angeline Jane Bernabe (September 23, 2019). "New 'Frozen 2' trailer: Anna and Elsa embark on journey into the enchanted forest" . Good Morning America . Retrieved September 23, 2019 .
+^ a  b  Anna & Elsa's Childhood Times, page 4 . Look Games. July 27, 2017 - via YouTube.
+^ a  b  c  Ekberg, Aida (May 18, 2013). "Disney's 'Frozen:' How Different Will the Movie Be from the Original Real Fairy Tale?" . Yahoo! Inc. Archived from the original on July 29, 2014 . Retrieved December 12, 2013 .
+^ a  b  "Disney brings The Snow Queen in from the cold" . South China Morning Post . December 19, 2013. Archived from the original on December 24, 2013 . Retrieved December 22, 2013 .
+^ a  b  c  d  Hill, Jim (October 18, 2013). "Countdown to Disney "Frozen" : How one simple suggestion broke the ice on the "Snow Queen"'s decades-long story problems" . Los Angeles Times . Archived from the original on October 22, 2013 . Retrieved December 12, 2013 .
+^  "The Frozen Directors' Character Guide" . Empire . Archived from the original on January 7, 2014 . Retrieved January 6, 2014 .
+^  Ivan-Zadeh, Larushka (December 8, 2013). "Frozen creators: It's Disney-but a little different" . Metro . Archived from the original on January 7, 2014 . Retrieved January 6, 2014 .
+^  Chavez, Richard; Murray, Rebecca. " 'Frozen' Directors Chris Buck and Jennifer Lee Discuss the Animated Film" . About.com. Archived from the original on January 7, 2014 . Retrieved January 6, 2014 .
+^ a  b  Eisenberg, Eric (July 11, 2013). "Meet The Characters Of Disney's Frozen" . Cinema Blend. Archived from the original on December 13, 2013 . Retrieved December 12, 2013 .
+^  Lee, Michael (October 7, 2013). "50 Things You May Not Know About Disney's "Frozen" [UPDATED]" . Movie Viral. Archived from the original on December 12, 2013 . Retrieved December 23, 2013 .
+^  Wright, Gary (November 27, 2013). "Frozen in Time: Disney's Adaptation of a Literary Classic" . Rotoscopers. Archived from the original on December 24, 2013 . Retrieved December 23, 2013 .
+^  Covert, Colin (November 29, 2013). "MOVIE REVIEW: Disney's animated 'Frozen' is pretty chill" . The Gazette . Archived from the original on January 3, 2014 . Retrieved January 2, 2014 .
+^  "Frozen(2013)-Cast & Crew" . Yahoo! Inc . Archived from the original on July 19, 2013 . Retrieved January 2, 2014 .
+^  Condon, Sean Francis (November 27, 2013). "Interview: Frozen's Josh Gad" . MSN . Archived from the original on January 7, 2014 . Retrieved January 6, 2014 .
+^ a  b  c  d  Benardello, Karen (November 25, 2013). "Roundtable Interview With Idina Menzel On Frozen" . We Got This Covered . Archived from the original on November 29, 2013 . Retrieved December 11, 2013 .
+^ a  b  c  "Tangled-Secret Phone Recording Helped Idina Menzel Land New Disney Role" . Contact Music . November 1, 2013. Archived from the original on November 2, 2013 . Retrieved January 2, 2014 .
+^  Slotek, Jim (November 27, 2013). " 'Frozen' star Idina Menzel dives into character" . Toronto Sun . Retrieved December 17, 2013 .
+^ a  b  Lasser, Josh (November 28, 2013). "Idina Menzel on 'Frozen s Elsa, 'Wicked s Elphaba, and the power of her voice" . Hitfix . Archived from the original on December 27, 2013 . Retrieved December 26, 2013 .
+^ a  b  c  d  e  "Idina Menzel is Elsa, the Snow Queen in "Frozen" " . SM Cinema . Archived from the original on December 11, 2013 . Retrieved December 10, 2013 .
+^ a  b  c  De Asis Lo, Raymond (December 1, 2013). "Idina Menzel is a diva in her own right" . The Philippine Star . Archived from the original on December 20, 2013 . Retrieved December 19, 2013 .
+^  Pockross, Adam (October 8, 2013). "21 'Frozen' Facts That Make Us Ready for Winter" . Yahoo! Inc. Archived from the original on December 17, 2013 . Retrieved December 17, 2013 .
+^  Burbank, Kyle (February 24, 2014). "Oscar Week: Frozen's Art of Animation" . LaughingPlace.com . Archived from the original on March 31, 2014 . Retrieved March 30, 2014 .
+^  Chai, Barbara (November 27, 2013). "Listen to Songs From Disney's 'Frozen' and Hear How They Were Written" . The Wall Street Journal . Archived from the original on December 4, 2013 . Retrieved December 19, 2013 .
+^  World Entertainment News Network (November 1, 2013). "Tangled-Secret Phone Recording Helped Idina Menzel Land New Disney Role" . ContactMusic.com . Archived from the original on November 2, 2013 . Retrieved March 23, 2014 .
+^ a  b  Lowman, Rob (November 20, 2013). "Go behind the scenes of Disney's 'Frozen' " . The News Herald . Archived from the original on December 17, 2013 . Retrieved December 16, 2013 .
+^ a  b  Ibarra, Sabina (November 1, 2013). "Interview: The Creative Team Behind Disney's 'Frozen' " . Screen Crave. Archived from the original on November 2, 2013 . Retrieved December 17, 2013 .
+^  Weintraub, Steve (November 27, 2013). "Idina Menzel Talks FROZEN, Recording the Song Let it Go, Returning to Broadway in IF/THEN, and More" . Collider . Archived from the original on December 13, 2013 . Retrieved December 10, 2013 .
+^  Tabora, Brylle (December 2, 2013). "Disney adapts Hans Christian Andersen's 'Snow Queen' into 'Frozen' " . Daily Inquirer . Archived from the original on December 8, 2013 . Retrieved December 9, 2013 .
+^ a  b  Giardina, Carolyn (November 27, 2013). "Oscars: With 'Frozen,' Disney Invents a New Princess (and Secret Software)" . The Hollywood Reporter . Archived from the original on December 11, 2013 . Retrieved December 23, 2013 .
+^  Lee, Jennifer (January 11, 2014). "Twitter / alittlejelee" . Twitter . Archived from the original on March 15, 2014 . Retrieved February 27, 2014 .
+^  Skinner, Craig (July 11, 2013). "New Frozen Images And Descriptions Introduce Us To The Characters" . Bleeding Cool . Archived from the original on October 30, 2013 . Retrieved December 10, 2013 .
+^ a  b  Marcos, Angie (March 26, 2014). "Animators bask in glow of 'Frozen's' box-office and Oscar success" . The Orange County Register . Archived from the original on March 31, 2014 . Retrieved March 30, 2014 .
+^ a  b  The Deadline Team (February 12, 2014). "VES Awards: 'Gravity' Wins 6 Including Top Prize; 'Frozen' Goes 4-For-4; 3 Nods For 'Game Of Thrones' " . Deadline Hollywood . Archived from the original on February 13, 2014 . Retrieved February 13, 2014 .
+^  Lee, Kyung-min (June 25, 2014). "Disney artist Yoo Jae-hyun shares keys to success" . The Korea Times . Archived from the original on July 27, 2014 . Retrieved July 21, 2014 .
+^  Lee, Sun-Young (May 21, 2014). "Korean artist behind icy magic of 'Frozen' " . The Korea Herald . Herald Corporation. Archived from the original on July 20, 2014 . Retrieved July 21, 2014 .
+^ a  b  Coyle, Emily (December 3, 2013). "6 Facts You Didn't Know About Disney's 'Frozen' " . Wall St. Cheat Sheet . Archived from the original on December 14, 2013 . Retrieved December 13, 2013 .
+^  August, John; Aline Brosh McKenna (February 1, 2014). "Episode 128: Frozen with Jennifer Lee-Transcript" . Scriptnotes . johnaugust.com. Archived from the original on March 26, 2014 . Retrieved March 27, 2014 .
+^ a  b  c  Moskowitz, Shaina (November 29, 2013). "Exclusive interview with the talented duo behind the music of Disney's 'Frozen' ". Examiner.com.
+^ a  b  Koonse, Emma (November 26, 2013). "Kristen Bell, Idina Menzel On Redefining Disney Princesses In 'Frozen,' Film Coming Soon" . Christian Post . Archived from the original on December 14, 2013 . Retrieved December 13, 2013 .
+^ a  b  Roberts, Katie (February 7, 2014). "Early 'Frozen' Concept Art Reveals Elsa Inspired by Amy Winehouse & Bette Midler (PHOTO)" . Moviefone . Archived from the original on February 22, 2014 . Retrieved February 17, 2014 .
+^  Gallo, Carmine (December 5, 2013). "The Single Greatest Piece Of Advice Steve Jobs Gave 'Frozen' Executive Producer John Lasseter" . Forbes . Archived from the original on December 24, 2013 . Retrieved December 23, 2013 .
+^ a  b  "Evil Elsa, shy Kristoff? 10 'Frozen' facts you probably didn't know" . Rappler.com . March 7, 2014. Archived from the original on March 8, 2014 . Retrieved March 8, 2014 .
+^  "Frozen: Disney's magical new adventure" . Orange . December 2, 2013. Archived from the original on December 4, 2013 . Retrieved March 10, 2014 .
+^  Nguyen, Hanh (August 28, 2014). "Story of Frozen Reveals Movie Secrets-Which Beloved Song Was Almost Cut?" . TVGuide.com . CBS Interactive Inc. Archived from the original on September 4, 2014 . Retrieved September 7, 2014 .
+^ a  b  "The Making of Disney's Animated Oscar Contender 'Frozen' " . The Hollywood Reporter . November 27, 2013. Archived from the original on December 11, 2013 . Retrieved December 23, 2013 .
+^  Emanuel Levy, "Frozen: Setting and Visual Look"  Archived February 24, 2014, at the Wayback Machine , Emanuel Levy Cinema 24/7 , December 26, 2013.
+^  " 'Frozen' Director Gives Glimmer Of Hope Elsa Could Get A Girlfriend" . Huffpost. February 26, 2018 . Retrieved September 17, 2018 .
+^  "Elsa Coming Out as a Lesbian? Disney's 'Frozen 2' Could Showcase an LGBTQ Couple" . CBNNews.com. January 1, 2018 . Retrieved September 17, 2018 .
+^  "Elsa from Frozen could be a lesbian? Cue the outrage" . The Guardian . March 4, 2018 . Retrieved September 17, 2018 .
+^  "Why Frozen 2 Won't Give Elsa a Love Interest - IGN" . Archived from the original on August 27, 2019 . Retrieved September 24, 2019 - via www.ign.com.
+^  Dowd, Maureen (November 7, 2019). "Jennifer Lee, Queen of the 'Frozen' Franchise" . The New York Times . Retrieved November 25, 2019 .
+^ a  b  c  d  Hill, Jim (October 9, 2013). "Countdown to Disney "Frozen" : The flaky design idea behind the look of Elsa's ice palace" . Jim Hill Media . Archived from the original on October 16, 2013 . Retrieved December 17, 2013 .
+^  Connelly, Brendon (September 25, 2013). "Inside The Research, Design, And Animation Of Walt Disney's Frozen With Producer Peter Del Vecho" . Bleeding Cool . Archived from the original on October 13, 2013 . Retrieved December 17, 2013 .
+^  Milligan, Mercedes (July 19, 2019). " 'Frozen 2' Will Get Sámi Language Version" . Animation Magazine . Retrieved November 19, 2019 .
+^  Verstad, Anders Boine (July 19, 2019). "Frost 2 kommer på samisk" . NRK (in Norwegian Bokmål) . Retrieved November 19, 2019 .
+^  Keegan, Rebecca (January 24, 2014). "Finding a diva in 41 languages" . Los Angeles Times . Archived from the original on February 6, 2014 . Retrieved February 18, 2014 .
+^  " 'Let It Go': A Global Hit in Any Language" . NPR . February 24, 2014. Archived from the original on April 9, 2014 . Retrieved March 1, 2014 .
+^  Doty, Meriah (March 31, 2014). "How These Singers Around the Globe Pushed 'Frozen' Over the Top" . Yahoo Movies . Yahoo!. Archived from the original on April 7, 2014 . Retrieved April 3, 2014 .
+^  Charmedbalthazar (April 2, 2011), Wicked Interview with Maria Lucia and Annette Heick , retrieved June 11, 2019
+^  "Wicked - Die Hexen von Oz (Originalversion des Deutschen Musicals)" von Ensemble Palladium Theater Stuttgart (in German), January 2007 , retrieved June 11, 2019
+^  Gans, Andrew (February 12, 2013). "Willemijn Verkaik Flies Into Broadway's Wicked Feb. 12" . Playbill . Retrieved June 11, 2019 .
+^  "박혜나 :: 네이버 인물검색" . people.search.naver.com . Retrieved June 11, 2019 .
+^  "박혜나 - 나무위키" . namu.wiki . Retrieved June 11, 2019 .
+^  Pasqualini, Mario (April 3, 2019). "Lorena Brancucci e gli adattamenti musicali Disney" . Dimensione Fumetto (in Italian) . Retrieved December 2, 2019 .
+^  Elsa and Anna | Priyanka and Parineeti | Frozen 2 | Hindi | November 22 , retrieved January 16, 2020
+^  "Let It Go The Complete Set (From "Frozen") di Various artists su Amazon Music - Amazon.it" . www.amazon.it . Retrieved August 28, 2020 .
+^  McPhee, Ryan (February 10, 2020). "Watch Idina Menzel and 9 Fellow Elsas Sing Frozen 2's 'Into the Unknown' at the Oscars" . Playbill . Retrieved February 10, 2020 .
+^  Booth, Kaitlyn (June 13, 2017). "Olaf's Frozen Adventure Trailer For The 21-Minute Featurette In Front Of Coco" . Bleeding Cool . Retrieved December 3, 2017 .
+^  Snetiker, Marc (June 13, 2017). "John Lasseter talks Olaf's Frozen Adventure, debuts first look" . Entertainment Weekly . Archived from the original on June 13, 2017 . Retrieved June 13, 2017 .
+^  "OLAF'S FROZEN ADVENTURE Makes Broadcast Television Debut on ABC, 12/14" . broadwayworld.com. December 8, 2017 . Retrieved December 8, 2017 .
+^  "Trailer" . YouTube . June 4, 2018 . Retrieved June 5, 2018 .
+^  "Disney Frozen Musical Magic Elsa and Anna Dolls" . The Celebrity Cafe . December 13, 2013. Archived from the original on December 17, 2013 . Retrieved December 17, 2013 .
+^ a  b  c  Hill, Jim (November 6, 2013). "Winter comes early to NYC as the Times Square Disney Store gets "Frozen" over" . Jim Hill Media . Archived from the original on November 10, 2013 . Retrieved February 17, 2014 .
+^  Disney Consumer Products (November 6, 2013). "Press release: Disney Celebrates Family Bonds and Epic Storytelling in New Frozen Product Collection Available at Retail Now" . Disney Consumer Products . Archived from the original on February 21, 2014 . Retrieved February 17, 2014 .
+^  Stradling, Morgan (July 29, 2013). "New Disney 'Frozen' Storybook Images Reveal Juicy Plot Details" . Rotoscopers. Archived from the original on December 15, 2013 . Retrieved December 17, 2013 .
+^  Brigante, Ricky (November 21, 2013). "Disney Infinity finally features more female characters in new Toy Box fun with Frozen, Rapunzel, Vanellope von Schweetz" . Inside the Magic . Archived from the original on December 4, 2013 . Retrieved December 30, 2013 .
+^  Schuster, Dana (April 14, 2014). " 'Frozen' merch is making parents do crazy things" . New York Post . Archived from the original on April 16, 2014 . Retrieved May 10, 2014 .
+^  Byron, Ellen; Ziobro, Paul (November 4, 2014). "Elsa Dominates Anna in 'Frozen' Merchandise Sales" . Wall Street Journal . Dow Jones & Company, Inc. Archived from the original on December 15, 2014 . Retrieved November 9, 2014 .
+^  Brigante, Ricky (October 7, 2013). "Anna and Elsa to begin "Frozen" character meet-and-greets at Walt Disney World and Disneyland in November" . Inside the Magic . Archived from the original on December 14, 2013 . Retrieved December 14, 2013 .
+^  Brigante, Ricky (November 15, 2013). "Anna and Elsa joined by animated Olaf for 'Frozen' character meet-and-greet in Royal Reception at Disneyland" . Inside the Magic . Archived from the original on February 26, 2014 . Retrieved December 14, 2013 .
+^  Tully, Sarah (February 20, 2014). " 'Frozen' characters draw unprecedented lines at Disneyland" . Orange County Register . Archived from the original on March 3, 2014 . Retrieved March 11, 2014 .
+^  "Disney's 'Frozen' meet-and-greet at Epcot to continue indefinitely" . Doctor Disney . February 10, 2014. Archived from the original on March 11, 2014 . Retrieved March 11, 2014 .
+^  Lee, Banks (December 7, 2013). "Day two of filming for the 2013 Disney Parks Christmas Day Parade-Photos/Video" . Orlando Attractions Magazine . Archived from the original on February 23, 2014 . Retrieved December 14, 2013 .
+^  Brigante, Ricky (March 9, 2014). "Festival of Fantasy parade debuts high-energy entertainment at Walt Disney World with 'Frozen,' 'Tangled', among fun floats" . Inside the Magic . Archived from the original on March 11, 2014 . Retrieved March 11, 2014 .
+^  Brigante, Ricky (April 20, 2014). " "Frozen" characters find new home at Walt Disney World as FastPass+ cuts wait to meet Anna and Elsa-when it works" . Inside the Magic . Archived from the original on April 23, 2014 . Retrieved April 21, 2014 .
+^  Fickley-Baker, Jennifer (April 20, 2014). " 'Frozen' Anna & Elsa Arrive at Princess Fairytale Hall Today" . Disney Parks Blog . Archived from the original on April 22, 2014 . Retrieved April 21, 2014 .
+^  Barnes, Brooke (December 1, 2013). "Boys Don't Run Away From These Princesses" . New York Times . Archived from the original on December 1, 2013 . Retrieved December 14, 2013 .
+^  Brigante, Ricky (November 15, 2013). "World of Color-Winter Dreams all-new nighttime Disneyland show debuts featuring Frozen, Toy Story, holiday songs" . Inside the Magic . Archived from the original on December 14, 2013 . Retrieved December 14, 2013 .
+^  Monti, Andrea (November 23, 2013). "Disneyland Paris: Intervista a Katy Harris" . Parks Mania . Archived from the original on December 14, 2013 . Retrieved December 14, 2013 .
+^  " 'Frozen' Segment Added to 'Celebrate the Magic' " . Laughing Place . November 21, 2013. Archived from the original on December 31, 2015 . Retrieved December 14, 2013 .
+^  Slater, Shawn (May 16, 2014). "More 'Frozen' Fun at Disneyland Park This Summer" . Disney Parks Blog. Archived from the original on May 17, 2014 . Retrieved May 16, 2014 .
+^  Slater, Shawn (June 26, 2014). "Get Ready to Experience 'Frozen' Summer Fun-Live at Disney's Hollywood Studios" . Disney Parks Blog . The Walt Disney Company . Archived from the original on June 27, 2014 . Retrieved June 26, 2014 .
+^  Brigante, Ricky (June 26, 2014). "Frozen Summer Fun LIVE! coming to Walt Disney World with royal welcome, stage show, fireworks, and park wide party" . Inside the Magic . Distant Creations Group, LLC. Archived from the original on June 27, 2014 . Retrieved June 26, 2014 .
+^  Wynne, Sharon Kennedy (August 7, 2014). " 'Frozen' still hot at Disney theme park, celebration extended" . Tampa Bay Times . Archived from the original on August 11, 2014 . Retrieved August 7, 2014 .
+^  Harker, Michelle (August 19, 2014). "Elsa & Anna's Boutique and More Thrilling Transformations Coming to the Disneyland Resort" . Disney Parks Blog. Archived from the original on August 20, 2014 . Retrieved August 19, 2014 .
+^  "Studio Disney 365 to Transform into Elsa and Anna's Boutique" . LaughingPlace.com. August 19, 2014. Archived from the original on August 21, 2014 . Retrieved August 19, 2014 .
+^  Harker, Michelle (September 16, 2014). "Update: Anna & Elsa's Boutique in the Downtown Disney District at the Disneyland Resort" . Disney Parks Blog. Archived from the original on September 19, 2014 . Retrieved September 16, 2014 .
+^  "Anna & Elsa's Boutique to Open October 6" . LaughingPlace.com. September 16, 2014. Archived from the original on November 4, 2015 . Retrieved September 16, 2014 .
+^  "Anna and Elsa to appear in "My Royal Coronation" event at Walt Disney World as travel agents bring "Frozen" character meal to Epcot" . Inside the Magic . August 26, 2014. Archived from the original on August 28, 2014 . Retrieved August 28, 2014 .
+^ a  b  c  Staggs, Tom (September 12, 2014). " 'Frozen' Attraction Coming to Epcot" . Disney Parks Blog. Archived from the original on September 13, 2014 . Retrieved September 12, 2014 .
+^ a  b  Brigante, Ricky (September 12, 2014). " "Frozen" ride announced for Walt Disney World in 2016 to replace Maelstrom at Epcot, "Frozen" Christmas also revealed" . Inside the Magic . Archived from the original on September 14, 2014 . Retrieved September 14, 2014 .
+^  Sim, Darren (August 15, 2014). "Hong Kong Disneyland launches "Disney Paint the Night" Parade from October 2014" . darrensim.com . Archived from the original on September 19, 2014.
+^  Slater, Shawn (December 5, 2014). "New 'Frozen Fun' Opens at Disneyland Resort January 7" . Disney Parks Blog. Archived from the original on December 11, 2014 . Retrieved December 5, 2014 .
+^  Graser, Marc (December 5, 2014). "Disney Adds 'Frozen' Experiences to Disneyland, California Adventure Theme Parks" . Variety . Archived from the original on December 9, 2014 . Retrieved December 5, 2014 .
+^  "Prepare to be Wowed by Disneyland's Three New Nighttime Spectaculars" . Disney Insider . April 14, 2015. Archived from the original on April 17, 2015 . Retrieved April 14, 2015 .
+^  Arnowitz, Leora (June 18, 2014). "I want to be a role model for children" . FoxNews.com. Archived from the original on February 4, 2016 . Retrieved February 2, 2016 .
+^  Rothman, Michael (June 13, 2014). "Meet Anna Faith Carlson, the Actress Who Looks Just Like Elsa From 'Frozen' " . ABC News . Archived from the original on November 28, 2015 . Retrieved January 28, 2016 .
+^  "Exclusive First Look: This Is Elsa on Once Upon a Time" . Time .
+^  "Frozen Musical Announces Full Broadway Lead Casting" . broadway.com. April 17, 2017. Archived from the original on May 17, 2017.
+^  Hoffman, Barbara (March 14, 2018). "Bow down to the 'Frozen' stars ruling Broadway" . New York Post . New York Post . Retrieved March 14, 2018 .
+^  Gans, Andrew (January 15, 2020). "Ciara Renée and McKenzie Kurtz Will Be Frozen's New Elsa and Anna on Broadway" . Playbill . TotalTheater . Retrieved December 14, 2021 .
+^  "Casting News: Frozen Announces Full Touring Cast" , ToursToYou.org, September 23, 2019
+^  Willmott, Phil (April 14, 2020). "Samantha Barks is Frozen's Elsa & Stephanie McKeon is Anna. Disney's latest sisters" . londonboxoffice.co.uk . Retrieved April 14, 2020 .
+^  "Frozen the Musical" . Frozen the Musical . Retrieved March 19, 2021 .
+^  "SCES to perform Disney's Frozen JR. April 23, 24 and 25" . The Donalsonville News .
+^  Dickens, Donna (December 3, 2013). "Disney's Frozen: Awful Expectations Vs. Enchanting Reality" . Hitfix. Archived from the original on December 17, 2013 . Retrieved December 16, 2013 .
+^  Goldberg, Matt (November 28, 2013). "FROZEN Review" . Collider . Archived from the original on December 31, 2013 . Retrieved December 28, 2013 .
+^  Pal, Deepanjana (November 29, 2013). "Frozen review: This modern Snow Queen will melt your heart" . Firstpost . Archived from the original on December 8, 2013 . Retrieved December 9, 2013 .
+^  Croot, James (December 12, 2013). "Frozen is Disney at its best" . Stuff.co.nz . Retrieved December 12, 2013 .
+^  Webb, Katherine (December 5, 2013). "4 Ways 'Frozen' Flips the Traditional Disney Script" . Wall St. Cheat Sheet . Archived from the original on February 21, 2015 . Retrieved December 12, 2013 .
+^  "Princess Profiles: Elsa" . November 30, 2013. Archived from the original on September 3, 2015 . Retrieved September 19, 2015 .
+^  Bean, Travis (December 23, 2013). "Frozen features fantasy, focuses on family values" . Cedar Falls Times . Archived from the original on January 4, 2014 . Retrieved December 23, 2013 .
+^  Levy, Laurie (December 11, 2013). "Frozen-A Multi-Generational Review" . Chicago Now. Archived from the original on August 21, 2014 . Retrieved December 11, 2013 .
+^  Lachowicz, Magdalena (December 9, 2013). "Animated Film 'Frozen' Breaks Disney Princess Conventions" . The Heights . Archived from the original on December 13, 2013 . Retrieved December 10, 2013 .
+^  Holden, Stephen (November 26, 2013). "From the Heat of Royal Passion, Poof! It's Permafrost" . The New York Times . Archived from the original on December 9, 2013 . Retrieved December 9, 2013 .
+^  Hicks, Tony (November 26, 2013). "Review: 'Frozen' is Disney at its best" . San Jose Mercury News . Archived from the original on December 13, 2013 . Retrieved December 10, 2013 .
+^  Elias, Debbie Lynn (December 12, 2013). "Movie Review-Frozen" . Culver City Observer . Archived from the original on December 4, 2013 . Retrieved December 17, 2013 .
+^  "The 69 biggest crushes of the last decade" . Polygon . November 6, 2019 . Retrieved November 13, 2020 .
+^  Hawson, Fred (December 10, 2013). "Review: Icy sentimentality in 'Frozen' " . ABS-CBN Corporation . Archived from the original on December 10, 2013 . Retrieved December 10, 2013 .
+^  Muslim, Samra (January 26, 2014). "Movie review: Frozen-winter is coming" . The Express Tribune . Archived from the original on February 14, 2014 . Retrieved February 18, 2014 .
+^  O'Sullivan, Charlotte (December 7, 2013). "Frozen 3D-film review" . London Evening Standard . Archived from the original on December 17, 2013 . Retrieved December 10, 2013 .
+^  Smith, Anna (November 28, 2013). "Frozen in time: when will Disney's heroines reflect real body shapes?" . The Guardian . Archived from the original on December 16, 2013 . Retrieved December 15, 2013 .
+^  Stevens, Dana (February 14, 2014). "I Can't 'Let It Go' " . Slate . Archived from the original on February 18, 2014 . Retrieved February 18, 2014 .
+^  Christy Lemire (November 27, 2013). "Frozen"  Archived March 28, 2014, at the Wayback Machine . RogerEbert.com. Ebert Digital LLC. Retrieved December 26, 2013.
+^  Warmann, Amon (December 5, 2013). "Film Review: 'Frozen' " . Cine Vue . Archived from the original on December 7, 2013 . Retrieved December 10, 2013 .
+^  Sneitker, Marc (November 30, 2013). "Disney's 'Frozen' soundtrack: Ranking all nine original songs" . Entertainment Weekly . Archived from the original on December 9, 2013 . Retrieved December 10, 2013 .
+^  Barnard, Linda (November 27, 2013). "Frozen will warm your heart: review" . The Star . Archived from the original on December 15, 2013 . Retrieved December 14, 2013 .
+^  DeTruck, Matt (November 27, 2013). "CD Review: Disney's "Frozen" Soundtrack" . City Newspaper . Archived from the original on December 3, 2013 . Retrieved December 10, 2013 .
+^  Clark, Donald (December 6, 2013). "Film review: Frozen" . Irish Times . Archived from the original on December 13, 2013 . Retrieved December 14, 2013 .
+^  Asl, Nasim (December 13, 2013). "Frozen Melts Viewers' Hearts" . The Oxford Student . Archived from the original on December 15, 2013 . Retrieved December 15, 2013 .
+^  "Disney's Frozen Promote Mental Health Awareness for children" . www.depression-guide.com .
+^  "The Psychology of 'Frozen' " . Archived from the original on December 27, 2019 . Retrieved December 12, 2019 .
+^  "6 Ways 'Frozen' Teaches You What Depression Is Like" . Cracked.com . March 20, 2016.
+^  Kelly, M. J. (December 7, 2019). "The Frozen Movies' Powerful Hidden Message About Mental Health" . Goalcast .
+^  "9 Reasons Elsa's Storyline in 'Frozen' Is the Perfect Metaphor for Mental Illness" . The Mighty .
+^  "Borderline Personality Disorder in Disney's Frozen" . February 12, 2015.
+^  "What Disney's 'Frozen' can teach us about mental illness - The Washington Post" . The Washington Post .
+^  Singer, Jenny. "Elsa in 'Frozen' Is a Disney Queen for Anxious Girls" . Glamour .
+^  "2013 EDA Award Nominess" . Alliance of Women Film Journalists . December 11, 2013. Archived from the original on December 16, 2013 . Retrieved December 17, 2013 .
+^  S. Cohen, David (February 12, 2014). "Visual Effects Society Awards: 'Gravity' Soars, 'Frozen' Sparkles" . Variety . Archived from the original on February 13, 2014 . Retrieved February 13, 2014 .
+^  Staff (January 24, 2014). "2013 Academy Awards Nominations and Winners by Category" . Box Office Mojo . Archived from the original on February 28, 2014 . Retrieved January 16, 2014 .
+^  "Phoenix Film Critics Society 2013 Award Nominations" . Phoenix Film Critics Society. Archived from the original on December 13, 2013 . Retrieved December 17, 2013 .
+^  Gicas, Peter (December 16, 2013). "Critics' Choice Awards 2014: Complete List of Nominations" . E! Online . Archived from the original on December 17, 2013 . Retrieved December 17, 2013 .
+^  "Golden Globe Awards Nominations: '12 Years A Slave' & 'American Hustle' Lead Pack" . Deadline . December 12, 2013. Archived from the original on December 16, 2013 . Retrieved December 17, 2013 .
+^  International Press Academy (December 2, 2013). "The International Press Academy Announces Nominations For The 18th Annual Satellite Awards™" . PR Newswire . Archived from the original on December 2, 2013 . Retrieved December 17, 2013 .
+^  "American Hustle, 12 Years A Slave Lead BFCA's Critics Choice Movie Awards Nominations" . Deadline Hollywood . December 17, 2013. Archived from the original on September 14, 2014 . Retrieved December 18, 2013 .
+^  "12 Years a Slave wins Pic, Cuaron Director for Houston Film Critics" . Awards Daily . December 15, 2013. Archived from the original on December 23, 2013 . Retrieved December 18, 2013 .
+^  D'Addario, Daniel (December 3, 2014). "The 15 Most Influential Fictional Characters of 2014" . Time . Archived from the original on December 6, 2014 . Retrieved December 6, 2014 .
+Further reading Edit
+Lee, Jennifer (2013). " Frozen ' s Final Shooting Draft"  (PDF) . Walt Disney Animation Studios . Archived from the original  (PDF) on April 1, 2014 . Retrieved February 20, 2014 .
+Keywords:
+Disability, Disney, Frozen, Princess, Children's Literature, Aesthetics
+"A Kingdom of Isolation": Disney at the Movies
+"Conceal Don't Feel": Disney's Encoding of Disability Rhetoric in Frozen
+From Villainous Queen to Sympathetic Teen: Disney's Use of Cuteness to Create Empathy
+Child's Play: Marketing Elsa's Disability as a Universal Identity
+Not Always "the Fairest": The Limitations of Disney's Disability Rhetoric
+Works Cited
+Acuna, Kristen. "One Huge Change in the 'Frozen' Storyline Helped Make it a Billion-Dollar Movie." Business Insider 3 Sept. 2014. n.p. BusinessInsider.com . Web. 22 Nov. 2015.
+Aurelia, Autumn. "9 Reasons Elsa's Storyline in Frozen is the Perfect Metaphor for Mental Illness." Web Blog Post. The Mighty . Mighty Proud Media, 07 Dec. 2016. Web. 1 Apr. 2017.
+Bancroft, Tom. Creating Characters with Personality . New York: Watson-Guptill P, 2006. Print.
+Berberi, Tammy and Victor Berberi. "A Place at the Table: On Being Human in the Beauty and the Beast Tradition." Diversity in Disney Films: Critical Essays on Race, Ethnicity, Gender, Sexuality, and Disability . Ed. Johnson Cheu. Jefferson: McFarland, 2013. 195-208. Print.
+Bruce, Alexander M. "The Role of the 'Princess' in Walt Disney's Animated Films: Reactions of College Students." Popular Culture 30.1 (2007): 1-25. JSTOR . Web. 22 Nov. 2015.
+Campbell, Joseph. The Hero with a Thousand Faces . 3 rd ed. Novato: New World Library, 2008. Print.
+Davis, Lennard J. Bending Over Backwards: Disability, Dismodernism, and Other Difficult Positions . New York: New York U, 2002. Print.
+"Disney's Frozen and Autism." Web Blog Post. The Third Glance . Wordpress, 21 Dec. 2013. Web. 1 Apr. 2017.
+Fink, Moritz. "People Who Look Like Things: Representations of Disability in The Simpsons ." Journal of Literary and Cultural Disability Studies 7.3 (2013): 255-70. Project Muse . Web. 9 Apr. 2013. https://doi.org/10.3828/jlcds.2013.23
+Frozen . Dir. Jennifer Lee and Chris Buck. Perf. Idina Menzel, Kristen Bell, Jonathan Groff, Josh Gad, and Santino Fontana. Walt Disney, 2013. DVD.
+Garland-Thomson, Rosemarie. Extraordinary Bodies: Figuring Physical Disability in American Culture and Literature . New York: NYU P, 1996. Print.
+---. "The Politics of Staring: Visual Rhetorics of Disability in Popular Photography." Disability Studies: Enabling the Humanities . Eds. Sharon L. Snyder, Brenda Jo Brueggemann, and Rosemarie Garland-Thomson. New York: MLA, 2002. 56-75. Print.
+Giroux, Henry, and Grace Pollock. The Mouse that Roared: Disney and the End of Innocence . Lanham: Rowman and Littlefield, 2010. Print.
+Goffman, Erving. Notes on the Management of Spoiled Identity . New York: Simon and Schuster, 1963.
+Harrison, Mary-Catherine. "How Narrative Relationships Overcome Empathic Bias: Elizabeth Gaskell's Empathy Across Social Difference." Poetics Today 32.2 (2011): 255-88. JSTOR . Web. 22 Nov. 2015. https://doi.org/10.1215/03335372-1162686
+Hurley, Dorothy L. "Seeing White Children of Color and the Disney Fairy Tale Princess." The Journal of Negro Education 74.3 (2005): 221-32. JSTOR . Web. 22 Nov. 2015.
+Kiefaber, David. "A Girl with a Disability Appears as Princess Elsa in Target's Halloween Ad: When Quiet Inclusion Speaks Volumes." Creativity . AdWeek, 27 Oct. 2015. Web. 1 Apr. 2017.
+Linton, Simi. Claiming Disability: Knowledge and Identity . New York: New York UP, 1998. Print.
+Longmore, Paul K. "Screening Stereotypes: Images of Disabled People in Television and Motion Pictures." Why I Burned My Book and Other Essays on Disability . Philadelphia: Temple UP, 2003. 131-48. Print.
+Markotić, Nicole and Sally Chivers The Problem Body: Projecting Disability on Film . Columbus: Ohio State UP, 2010. Print.
+Matthew, Patricia A. and Jonathan Greenberg. "The Ideology of the Mermaid: Children's Literature in the Intro to Theory Course." Pedagogy: Critical Approaches to Teaching Literature, Language, Composition, and Culture 9.2 (2009): 217-33. NCTE . Web. 9 Apr. 2013.
+Merish, Lori. "Cuteness and Commodity Aesthetics: Tom Thumb and Shirley Temple." Freakery: Cultural Spectacles of the Extraordinary Body . Ed. Rosemarie Garland Thomson. New York: New York UP, 1996. 185-203. Print.
+Mitchell, David T., and Sharon L. Snyder. Narrative Prosthesis: Disability and the Narratives of Discourse . Ann Arbor: U of Michigan P, 2000. Print.
+Norden, Martin F. The Cinema of Isolation: A History of Physical Disability in the Movies . New Brunswick: Rutgers UP, 1994. Print.
+---. "'You're a Surprise from Every Angle': Disability, Identity, and Otherness in The Hunchback of Notre Dame ." Diversity in Disney Films: Critical Essays on Race, Ethnicity, Gender, Sexuality, and Disability . Ed. Johnson Cheu. Jefferson: McFarland, 2013. 163-78. Print.
+Peters, Susan. "Is There a Disability Culture? A Syncretisation of Three Possible World Views." Disability and Society 15.4 (2000): 583-601. Taylor and Francis Online . Web. 7 Apr. 2017. https://doi.org/10.1080/09687590050058198
+Quayson, Ato. Aesthetic Nervousness: Disability and the Crisis of Representation . New York: Columbia UP, 2007. Print.
+Schwartz, Karen, Zana Marie Lutfiyya, and Nancy Hansen. "Dopey's Legacy: Stereotypical Portrayals of Intellectual Disability in the Classic Animated Films." Diversity in Disney Films: Critical Essays on Race, Ethnicity, Gender, Sexuality, and Disability . Ed. Johnson Cheu. Jefferson: McFarland, 2013. 179-94. Print.
+Selznick, Sakki. "When Your Greatest Disability Is Your Greatest Strength-Or Why Little Girls and Big Boys Love Disney's Frozen ." She Writes . Kammy Wicoff, 20 Jan. 2015. Web. 1 Apr. 2017.
+Sun, Chyng Feng and Erica Sharrer. "Staying True to Disney: College Students' Resistance to Criticism of The Little Mermaid ." The Communication Review 7:35-55 (2004): 35-55. JSTOR . Web. 9 Apr. 2013.
+"The Story of Frozen : Making a Disney Animated Classic." Prod. Lincoln Square Productions and Walt Disney Animated Studios. ABC, 2 September 2014. Hulu . Web. 25 Oct. 2014.
+Thomas, Frank, and Ollie Johnston. The Illusion of Life . New York: Hyperion, 1981. Print.
+Turner, Sarah. "Blackness, Bayous, and Gumbo: Encoding and Decoding Race in a Colorblind World." Diversity in Disney Films: Critical Essays on Race, Ethnicity, Gender, Sexuality, and Disability . Ed. Johnson Cheu. Jefferson: McFarland, 2013. 83-98. Print.
+Urquhart, Emily. "How Frozen 's Elsa Helped a Little Girl with Albinism." Web Blog Post. BBC News  Services . BBC, 20 Apr. 2016. Web. 1 Apr. 2017.
+Waal, Frans de. "Bodies Talking to Bodies." The Age of Empathy: Nature's Lessons for a Kinder Society . New York: Three Rivers P, 2009. 46-83. Print.
+Wohlwend, Karen E. "Damsels in Discourse: Girls Consuming and Producing Identity Texts through Disney Princess Play." Reading Research Quarterly 44.1 (2009): 57-83. JSTOR Web. 22 Nov. 2015. https://doi.org/10.1598/RRQ.44.1.3
+Endnotes
+In this essay, I am defining Elsa and Anna as Disney princesses because audiences readily recognize them as such. They come from royalty, are designed with the princess aesthetic in mind, and meet all of the criteria necessary for an official coronation ceremony. I am aware that Frozen has its own product line separate from the Disney Princess brand to which all other princesses now subscribe and that they have not yet had their official "coronation ceremony" and product roll out at Walt Disney World. However, this is due to financial reasons-the Frozen line earns more money as a separate entity-rather than creative ones. It does not impact their identity as princesses within their own film-or in audiences' minds-and as such they wield all the rhetorical power of their princess predecessors.
+Return to Text
+Reference articles in Works Cited by Alexander M. Bruce, Dorothy L. Hurley, Patricia A. Matthew and Jonathan Greenberg, Chyng Feng Sun and Erica Sharrer, and Karen E. Wohlwend for more information on the impact of Disney movies on students from Kindergarten through college age.
+Return to Text
+In addition to Vanellope and Elsa, Disney also recently released a Marvel animated feature, Big Hero 6 , that follows the story of Baymax, a nurse-bot who works to help his "patient," Hiro Hamada, cope with depression resulting from his brother's sudden death in a fire. Although Disney rarely ever releases sequels (the last one was The Rescuers Down Under in 1990), Wreck It Ralph, Frozen, and Big Hero 6 will all be seeing sequels by 2020, reinforcing the popularity of all three of Disney's new disability representations.
+Return to Text
+Johnson Cheu's edited collection, Diversity in Disney Films: Essays on Race, Ethnicity, Gender, Sexuality and Disability offers several compelling essays on Disney's complicated relationship with race representation including those by Sara E. Turner and Prajna Parasher.
+Return to Text
+I use the term "normate" throughout the essay to refer to the able-bodied community. The word was coined by Rosemary Garland-Thomson in her foundational work Extraordinary Bodies: Figuring Physical Disability in American Culture and Literature and is meant to draw attention to the social construction of the term "normal" as well as the underlying prejudices the word implies.
+Return to Text
+Although Finding Nemo (2003) and Finding Dory (2016) are both realistic representations of disability as a shared experience, these films are a product of Disney's subsidiary, Pixar, which has always done more to push the envelope than the Disney corporation's main branch. My intention in this paper is to focus on Walt Disney studios themselves, so I intentionally omitted these films.
+Return to Text
+Madeline Boardman reported in the Huffington Post that the film grossed $49.1 million on its opening weekend, making it "the highest weekend opening for any Disney Animated Studios film.
+Return to Text
+Ralph's age and storyline (He's going through a mid-life crisis after spending the last 30 years as the villain of his game) both speak to an older audience similar to that of Pixar's The Incredibles . In addition, there are numerous references to video games from the 80s and 90s meant to appeal to an older, primarily male audience.
+Return to Text
+Most of Disney's attempts to encode race have, unfortunately, failed due to the latent (or blatent) racism these characters represent. The lead crow in Dumbo , named Jim (a distasteful reference to the Jim Crow laws of the South), embodies stereotypes of black men as lazy, out of work, and also associated with mysticism when they give Dumbo a "magic" feather. Song of the South employs similar stereotypes through the characters of Br'er Rabbit, Br'er Fox, and Br'er Bear.
+Return to Text
+Elsa's use of this term in particular is ironic, considering how crazy has been used as a derogatory term for the mentally disabled, as Margaret Price has noted. Price has, at the same time, made a compelling argument as to why the community needs to take back the term; however that does not appear to be what is happening in this scene.
+Return to Text
+All of Disney's princesses have a "want song" that articulates their heart's most secret desire. Although most early princesses sing about finding a prince to marry later princesses express a desire to explore or to be who they really are.
+Return to Text
+Lori Merish argues in her essay "Cuteness and Commodity Aesthetics: Tom Thumb and Shirley Temple," that the cute aesthetic as modern audiences recognize it actually began with the "kid shows" of the mid-1800's where audiences would flock to gawk at Little People performing in an aggrandized style as generals, counts, and princesses. In particular, the wedding of Tom Thumb to Lavinia Warren was marketed as both adorable and innocent (190-5).
+Return to Text
+It was Fred Moore, one of the supervising animators on Disney's first feature-length production, Snow White , who first introduced the cute aesthetic to the Disney team. According to his colleagues, Moore himself had "proportions [that] were cute, like his drawings, and it kind of tickled you to watch him moving around" (Thomas and Johnston 120).
+Return to Text
+As Tom Shakespeare argues, "Disabled people often experience major disadvantages as a result of their genetic endowment, whereas members of other historically oppressed communities experience either minimal or non-existent biological disadvantages" (31).
+Return to Text
+Return to Top of Page
+Title: Twenty Thousand Leagues under the Sea
+Author: Jules Verne
+Illustrators: Alphonse de Neuville
+Edouard Riou
+Release Date: September 1, 1994 [eBook #164]
+[Most recently updated: October 8, 2022]
+Language: English
+by Jules Verne
+Contents
+PART I
+CHAPTER I A SHIFTING REEF
+CHAPTER II PRO AND CON
+CHAPTER III I FORM MY RESOLUTION
+CHAPTER IV NED LAND
+CHAPTER V AT A VENTURE
+CHAPTER VI AT FULL STEAM
+CHAPTER VII AN UNKNOWN SPECIES OF WHALE
+CHAPTER VIII MOBILIS IN MOBILI
+CHAPTER IX NED LAND'S TEMPERS
+CHAPTER X THE MAN OF THE SEAS
+CHAPTER XI ALL BY ELECTRICITY
+CHAPTER XII SOME FIGURES
+CHAPTER XIII THE BLACK RIVER
+CHAPTER XIV A NOTE OF INVITATION
+CHAPTER XV A WALK ON THE BOTTOM OF THE SEA
+CHAPTER XVI A SUBMARINE FOREST
+CHAPTER XVII FOUR THOUSAND LEAGUES UNDER THE PACIFIC
+CHAPTER XVIII VANIKORO
+CHAPTER XIX TORRES STRAITS
+CHAPTER XX A FEW DAYS ON LAND
+CHAPTER XXI CAPTAIN NEMO'S THUNDERBOLT
+CHAPTER XXII "ÆGRI SOMNIA"
+CHAPTER XXIII THE CORAL KINGDOM
+PART II
+CHAPTER I THE INDIAN OCEAN
+CHAPTER II A NOVEL PROPOSAL OF CAPTAIN NEMO'S
+CHAPTER III A PEARL OF TEN MILLIONS
+CHAPTER IV THE RED SEA
+CHAPTER V THE ARABIAN TUNNEL
+CHAPTER VI THE GRECIAN ARCHIPELAGO
+CHAPTER VII THE MEDITERRANEAN IN FORTY-EIGHT HOURS
+CHAPTER VIII VIGO BAY
+CHAPTER IX A VANISHED CONTINENT
+CHAPTER X THE SUBMARINE COAL-MINES
+CHAPTER XI THE SARGASSO SEA
+CHAPTER XII CACHALOTS AND WHALES
+CHAPTER XIII THE ICEBERG
+CHAPTER XIV THE SOUTH POLE
+CHAPTER XV ACCIDENT OR INCIDENT?
+CHAPTER XVI WANT OF AIR
+CHAPTER XVII FROM CAPE HORN TO THE AMAZON
+CHAPTER XVIII THE POULPS
+CHAPTER XIX THE GULF STREAM
+CHAPTER XX FROM LATITUDE 47° 24′ TO LONGITUDE 17° 28′
+CHAPTER XXI A HECATOMB
+CHAPTER XXII THE LAST WORDS OF CAPTAIN NEMO
+CHAPTER XXIII CONCLUSION
+List of Illustrations
+An old grey-bearded gunner . . . .
+Captain Nemo's state-room
+Captain Nemo took the Sun's altitude
+I was ready to set out
+Conseil seized his gun
+All fell on their knees in an attitude of prayer
+A terrible combat began
+"A man! A shipwrecked sailor!" I cried
+The _Nautilus_ was floating near a mountain
+The _Nautilus_ was blocked up
+One of these long arms glided through the opening The unfortunate vessel sank more rapidly
+PART ONE
+CHAPTER I
+A SHIFTING REEF
+CHAPTER II
+PRO AND CON
+CHAPTER III
+I FORM MY RESOLUTION
+CHAPTER IV
+NED LAND
+CHAPTER V
+AT A VENTURE
+CHAPTER VI
+AT FULL STEAM
+CHAPTER VII
+AN UNKNOWN SPECIES OF WHALE
+CHAPTER VIII
+MOBILIS IN MOBILI
+CHAPTER IX
+NED LAND'S TEMPERS
+CHAPTER X
+THE MAN OF THE SEAS
+[Illustration] Captain Nemo's state-room
+CHAPTER XI
+ALL BY ELECTRICITY
+CHAPTER XII
+SOME FIGURES
+_Nautilus_.
+CHAPTER XIII
+THE BLACK RIVER
+CHAPTER XIV
+A NOTE OF INVITATION
+CHAPTER XV
+A WALK ON THE BOTTOM OF THE SEA
+[Illustration] I was ready to set out
+CHAPTER XVI
+A SUBMARINE FOREST
+CHAPTER XVII
+FOUR THOUSAND LEAGUES UNDER THE PACIFIC
+CHAPTER XVIII
+VANIKORO
+CHAPTER XIX
+TORRES STRAITS
+CHAPTER XX
+A FEW DAYS ON LAND
+CHAPTER XXI
+CAPTAIN NEMO'S THUNDERBOLT
+CHAPTER XXII
+"ÆGRI SOMNIA"
+CHAPTER XXIII
+THE CORAL KINGDOM
+[Illustration] All fell on their knees in an attitude of prayer The grave was then filled in with the rubbish taken from the ground, which formed a slight mound. When this was done, Captain Nemo and his men rose; then, approaching the grave, they knelt again, and all extended their hands in sign of a last adieu. Then the funeral procession returned to the Nautilus, passing under the arches of the forest, in the midst of thickets, along the coral bushes, and still on the ascent. At last the light of the ship appeared, and its luminous track guided us to the Nautilus. At one o'clock we had returned. As soon as I had changed my clothes I went up on to the platform, and, a prey to conflicting emotions, I sat down near the binnacle. Captain Nemo joined me. I rose and said to him:
+Microfacet Models
+Reflection Models
+/  Microfacet Models
+(Previous: Lambertian Reflection)
+<<OrenNayar Public Methods>>=
+OrenNayar(const Spectrum & R , Float sigma)      : BxDF (BxDFType(BSDF_REFLECTION | BSDF_DIFFUSE)), R ( R ) {     sigma = Radians(sigma);     Float sigma2 = sigma * sigma; A = 1.f - (sigma2 / (2.f * (sigma2 + 0.33f))); B = 0.45f * sigma2 / (sigma2 + 0.09f); }
+<<OrenNayar Private Data>>=
+const Spectrum  R; Float A, B;
+<<BxDF Method Definitions>>+=
+Spectrum OrenNayar:: f(const Vector3f &wo, const Vector3f &wi) const {     Float sinThetaI = SinTheta (wi);     Float sinThetaO = SinTheta (wo);     << Compute cosine term of Oren-Nayar model >> Float maxCos = 0;        if (sinThetaI > 1e-4 && sinThetaO > 1e-4) {            Float sinPhiI = SinPhi (wi), cosPhiI = CosPhi (wi);            Float sinPhiO = SinPhi (wo), cosPhiO = CosPhi (wo);            Float dCos = cosPhiI * cosPhiO + sinPhiI * sinPhiO;            maxCos = std::max((Float)0, dCos);        }
+<< Compute sine and tangent terms of Oren-Nayar model >> Float sinAlpha, tanBeta;        if ( AbsCosTheta (wi) > AbsCosTheta (wo)) {            sinAlpha = sinThetaO;            tanBeta = sinThetaI / AbsCosTheta (wi);        } else {            sinAlpha = sinThetaI;            tanBeta = sinThetaO / AbsCosTheta (wo);        }
+return R * InvPi * ( A + B * maxCos * sinAlpha * tanBeta); }
+<<Compute cosine term of Oren-Nayar model>>=
+Float maxCos = 0; if (sinThetaI > 1e-4 && sinThetaO > 1e-4) {     Float sinPhiI = SinPhi (wi), cosPhiI = CosPhi (wi);     Float sinPhiO = SinPhi (wo), cosPhiO = CosPhi (wo);     Float dCos = cosPhiI * cosPhiO + sinPhiI * sinPhiO;     maxCos = std::max((Float)0, dCos); }
+Finally, the  sine alpha
+<<Compute sine and tangent terms of Oren-Nayar model>>=
+Float sinAlpha, tanBeta; if ( AbsCosTheta (wi) > AbsCosTheta (wo)) {     sinAlpha = sinThetaO;     tanBeta = sinThetaI / AbsCosTheta (wi); } else {     sinAlpha = sinThetaI;     tanBeta = sinThetaO / AbsCosTheta (wo); }
+<<MicrofacetDistribution Declarations>>=
+class MicrofacetDistribution { public:     << MicrofacetDistribution Public Methods >> virtual Float D(const Vector3f &wh) const = 0;        virtual Float Lambda (const Vector3f &w) const = 0;        Float G1(const Vector3f &w) const {            return 1 / (1 + Lambda (w));        }        Float G(const Vector3f &wo, const Vector3f &wi) const {            return 1 / (1 + Lambda (wo) + Lambda (wi));        }        virtual Vector3f Sample_wh(const Vector3f &wo,            const Point2f &u) const = 0;        Float Pdf(const Vector3f &wo, const Vector3f &wh) const;
+protected:     << MicrofacetDistribution Protected Methods >>  MicrofacetDistribution (bool sampleVisibleArea)            : sampleVisibleArea(sampleVisibleArea) { }
+<< MicrofacetDistribution Protected Data >> const bool sampleVisibleArea;
+};
+<<MicrofacetDistribution Public Methods>>=
+virtual Float D(const Vector3f &wh) const = 0;
+A widely used microfacet distribution function based on a Gaussian distribution of microfacet slopes is due to Beckmann and Spizzichino ( 1963 ); our implementation is in the BeckmannDistribution
+class.
+<<MicrofacetDistribution Declarations>>+=
+class BeckmannDistribution : public MicrofacetDistribution { public:     << BeckmannDistribution Public Methods >> static Float RoughnessToAlpha(Float roughness) {            roughness = std::max(roughness, (Float)1e-3);            Float x = std::log(roughness);            return 1.62142f + 0.819955f * x + 0.1734f * x * x +                0.0171201f * x * x * x + 0.000640711f * x * x * x * x;        }        BeckmannDistribution(Float alphax, Float alphay, bool samplevis = true)            : MicrofacetDistribution (samplevis), alphax(alphax), alphay(alphay) {        }        Float D(const Vector3f &wh) const; Vector3f Sample_wh(const Vector3f &wo, const Point2f &u) const;
+private:     << BeckmannDistribution Private Methods >> Float Lambda(const Vector3f &w) const;
+<< BeckmannDistribution Private Data >> const Float alphax, alphay;
+};
+<<BeckmannDistribution Private Data>>=
+const Float alphax, alphay;
+The BeckmannDistribution::D()
+<<MicrofacetDistribution Method Definitions>>=
+Float BeckmannDistribution::D(const Vector3f &wh) const {     Float tan2Theta = Tan2Theta (wh);     if (std::isinf(tan2Theta)) return 0.;     Float cos4Theta = Cos2Theta (wh) * Cos2Theta (wh);     return std::exp(-tan2Theta * ( Cos2Phi (wh) / ( alphax * alphax ) + Sin2Phi (wh) / ( alphay * alphay ))) /         ( Pi * alphax * alphay * cos4Theta); }
+<<MicrofacetDistribution Declarations>>+=
+class TrowbridgeReitzDistribution : public MicrofacetDistribution { public:     << TrowbridgeReitzDistribution Public Methods >> static inline Float RoughnessToAlpha(Float roughness);        TrowbridgeReitzDistribution(Float alphax, Float alphay,                bool samplevis = true)            : MicrofacetDistribution (samplevis), alphax(alphax), alphay(alphay) {        }        Float D(const Vector3f &wh) const; Vector3f Sample_wh(const Vector3f &wo, const Point2f &u) const;
+private:     << TrowbridgeReitzDistribution Private Methods >> Float Lambda(const Vector3f &w) const;
+<< TrowbridgeReitzDistribution Private Data >> const Float alphax, alphay;
+};
+<<TrowbridgeReitzDistribution Public Methods>>=
+static inline Float RoughnessToAlpha(Float roughness);
+<<TrowbridgeReitzDistribution Private Data>>=
+const Float alphax, alphay;
+<<MicrofacetDistribution Method Definitions>>+=
+Float TrowbridgeReitzDistribution::D(const Vector3f &wh) const {     Float tan2Theta = Tan2Theta (wh);     if (std::isinf(tan2Theta)) return 0.;     const Float cos4Theta = Cos2Theta (wh) * Cos2Theta (wh);     Float e = ( Cos2Phi (wh) / (alphax * alphax) + Sin2Phi (wh) / (alphay * alphay)) * tan2Theta;     return 1 / ( Pi * alphax * alphay * cos4Theta * (1 + e) * (1 + e)); }
+Zerø Wind  Jamie Wong
+August 5, 2016
+Fluid Simulation (with WebGL demo)
+The Velocity Field
+Advection
+Advecting the Velocity Field
+Divergent Fields
+Navier-Stokes
+Solving for Pressure
+Iteratively Solving the Pressure Equation
+All Together Now!
+Implementation
+References
+The Velocity Field
+$$ \vec u(x, y) = (u_x, u_y) $$
+$$ \vec c(\vec p + \vec u(\vec p, t) \Delta t, t + \Delta t) := \vec c(\vec p, t) $$
+$$ \vec c(\vec p, t + \Delta t) := \vec c(\vec p - \vec u(\vec p) \Delta t, t) $$
+$$\begin{aligned} \nabla \cdot \vec u &=     \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y} \right)      \cdot     \left( u_x, u_y \right) \\ &= \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} \end{aligned}$$
+$$\begin{aligned} \nabla \cdot \vec u &=     \frac{\partial}{\partial x}(x) + \frac{\partial}{\partial y}(y) \\ &= 1 + 1 \\ &= 2 \end{aligned}$$
+$$\begin{aligned} \nabla \cdot \vec u &=     \frac{\partial}{\partial x}(\sin(2 \pi x)) + \frac{\partial}{\partial y}(0)  \\ &= 2 \pi \cos (2 \pi x) \end{aligned}$$
+$$\begin{aligned} & \frac{\partial \vec u}{\partial t} =     -\vec u \cdot \nabla \vec u     -\frac{1}{\rho} \nabla p + \nu \nabla^2 \vec u + \vec F \\ \\ & \nabla \cdot \vec u = 0 \end{aligned}$$
+$$ \frac{\partial \vec u}{\partial t} =     -\vec u \cdot \nabla \vec u     -\frac{1}{\rho} \nabla p $$
+$$\begin{aligned} \begin{bmatrix}     \frac{\partial u_x}{\partial t} \\     \\     \frac{\partial u_y}{\partial t} \end{bmatrix} &=     -     \begin{bmatrix}         \frac{\partial u_x}{\partial x} & \frac{\partial u_x}{\partial y} \\         \\         \frac{\partial u_y}{\partial x} & \frac{\partial u_y}{\partial y}     \end{bmatrix}     \begin{bmatrix}         u_x \\         \\         u_y     \end{bmatrix}     -     \frac{1}{\rho}     \begin{bmatrix}         \frac{\partial p}{\partial x} \\         \\         \frac{\partial p}{\partial y}     \end{bmatrix}     \\ \begin{bmatrix}     \frac{\partial u_x}{\partial t} \\     \\     \frac{\partial u_y}{\partial t} \end{bmatrix} &=     \begin{bmatrix}         - u_x \frac{\partial u_x}{\partial x}         - u_y \frac{\partial u_x}{\partial y}         - \frac{1}{\rho} \frac{\partial p}{\partial x} \\         \\         - u_x \frac{\partial u_y}{\partial x}         - u_y \frac{\partial u_y}{\partial y}         - \frac{1}{\rho} \frac{\partial p}{\partial y}     \end{bmatrix} \end{aligned}$$
+$$ \frac{\partial u_x}{\partial t} \approx \frac{u_x(x, y, t + \Delta t) - u_x(x,  y, t)}{\Delta t} $$
+$$ \begin{aligned} \frac{u_x(x, y, t + \Delta t) - u_x(x, y, t)}{\Delta t} =&     -u_x(x, y, t)         \frac{u_x(x + \epsilon, y, t) - u_x(x - \epsilon, y, t)}{2 \epsilon}     \\     &     -u_y(x, y, t)         \frac{u_x(x, y + \epsilon, t) - u_x(x, y - \epsilon, t)}{2 \epsilon}     \\     &     -\frac{1}{\rho}         \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon} \end{aligned} $$
+$$ \begin{aligned} u_x(x, y, t + \Delta t) = &     u_x(x, y, t)     \\     &      - u_x(x, y, t) \Delta t         \frac{u_x(x + \epsilon, y, t) - u_x(x - \epsilon, y, t)}{2 \epsilon}     \\     &     -u_y(x, y, t) \Delta t         \frac{u_x(x, y + \epsilon, t) - u_x(x, y - \epsilon, t)}{2 \epsilon}     \\     &     -\frac{1}{\rho} \Delta t         \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon} \end{aligned} $$
+$$ \begin{aligned} u_x(x, y, t + \Delta t) =     u^a_x(x, y, t)     -\frac{1}{\rho} \Delta t         \frac{p(x + \epsilon, y, t) - p(x - \epsilon, y, t)}{2 \epsilon} \end{aligned} $$
+$$ \begin{aligned} \nabla \cdot \vec u & = 0 \\  \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} & = 0 \\  \frac{     u_x(x + \epsilon, y, t + \Delta t) - u_x(x - \epsilon, y, t + \Delta t) }{     2 \epsilon } + \\ \\ \frac{     u_y(x, y + \epsilon, t + \Delta t) - u_y(x, y - \epsilon, t + \Delta t) }{     2 \epsilon } & = 0 \end{aligned} $$
+$$\begin{aligned} 0 = \frac{1}{2 \epsilon} \left(      \left(     u^a_x(x + \epsilon, y, t)     -\frac{1}{\rho} \Delta t         \frac{p(x + 2\epsilon, y, t) - p(x, y, t)}{2 \epsilon}     \right)      \right. \\ \left.      -     \left(     u^a_x(x - \epsilon, y, t)     -\frac{1}{\rho} \Delta t         \frac{p(x, y, t) - p(x - 2\epsilon, y, t)}{2 \epsilon}     \right)      \right. \\ \left.      +     \left(     u^a_y(x, y + \epsilon, t)     -\frac{1}{\rho} \Delta t         \frac{p(x, y + 2\epsilon, t) - p(x, y, t)}{2 \epsilon}     \right)      \right. \\ \left.      -     \left(     u^a_y(x, y - \epsilon, t)     -\frac{1}{\rho} \Delta t         \frac{p(x, y, t) - p(x, y - 2\epsilon, t)}{2 \epsilon}     \right) \right) \end{aligned}$$
+$$ -\frac{\Delta t}{2 \epsilon \rho} \left(  \begin{matrix}  4 p(x, y, t) \\ -p(x + 2 \epsilon, y, t) \\ -p(x - 2 \epsilon, y, t) \\ -p(x, y + 2 \epsilon, t) \\ -p(x, y - 2 \epsilon, t) \end{matrix}  \right) =  \begin{matrix}  u^a_x(x + \epsilon, y, t) \\ -u^a_x(x - \epsilon, y, t) \\ +u^a_y(x, y + \epsilon, t) \\ -u^a_y(x, y - \epsilon, t) \end{matrix}  $$
+$$ d_{i,j} = -\frac{2 \epsilon \rho}{\Delta t} \begin{pmatrix}  u^a_x((i + 1) \epsilon, j \epsilon, t) \\ -u^a_x((i - 1) \epsilon, j \epsilon, t) \\ +u^a_y(i \epsilon, (j + 1) \epsilon, t) \\ -u^a_y(i \epsilon, (j - 1) \epsilon, t) \end{pmatrix} $$
+$$ 4p_{i, j} - p_{i+2,j} - p_{i-2,j} - p_{i,j+2} - p_{i,j-2} = d_{i, j} $$
+$$ p_{i, j} = \frac{     d_{i, j} + p_{i+2,j} + p_{i-2,j} + p_{i,j+2} + p_{i,j-2} }{4} $$
+$$ p_{i, j}^{(1)} = \frac{     d_{i, j} + p_{i+2,j}^{(0)} + p_{i-2,j}^{(0)} + p_{i,j+2}^{(0)} + p_{i,j-2}^{(0)} }{4} $$
+$$ p_{i, j}^{(k)} = \frac{     d_{i, j} + p_{i+2,j}^{(k-1)} + p_{i-2,j}^{(k-1)} + p_{i,j+2}^{(k-1)} + p_{i,j-2}^{(k-1)} }{4} $$
+$$ \vec u^a_{i,j} = \vec u^a(x:=i \epsilon, y:= j \epsilon, t + \Delta t) := \vec  u(x - u_x(x, y) \Delta t, y - u_y(x, y) \Delta t, t) $$
+$$ d_{i,j} = -\frac{2 \epsilon \rho}{\Delta t} (     u^a_{x_{i+1, j}} - u^a_{x_{i-1, j}} +     u^a_{y_{i, j+1}} - u^a_{y_{i,j-1}} ) $$
+$$ p_{i, j}^{(k)} = \frac{     d_{i, j} + p_{i+2,j}^{(k-1)} + p_{i-2,j}^{(k-1)} + p_{i,j+2}^{(k-1)} + p_{i,j-2}^{(k-1)} }{4} $$
+$$ \begin{aligned} u_{x_{i, j}} &:= u^a_{x_{i,j}}     -\frac{\Delta t}{2 \rho \epsilon} (p_{i + 1, j} - p_{i - 1, j}) \\ u_{y_{i, j}} &:= u^a_{y_{i, j}}     -\frac{\Delta t}{2 \rho \epsilon} (p_{i, j + 1} - p_{i, j - 1}) \end{aligned} $$
+$$ \vec {c^a} = \vec{c^a}(x:=i \epsilon, y:= j \epsilon, t + \Delta t) := \vec c(x  - u_x(x, y) \Delta t, y - u_y(x, y) \Delta t) $$
+Tweet  Follow @jlfwong
+Subscribe
+Logo
+Created using Figma
+Zerø Wind  Jamie Wong
+August 5, 2016
+Previously  Ray Marching and Signed Distance Functions  July 15, 2016
+Up next  Bending the Dynamic vs Static Language Tradeoff  October 26, 2016
+Bending of plates - Wikipedia
+Bending of plates
+From Wikipedia, the free encyclopedia
+Contents
+1  Bending of Kirchhoff-Love plates   1.1  Definitions   1.1.1  Moments
+1.1.2  Forces
+1.1.3  Stresses
+1.1.4  Strains
+1.1.5  Deflections
+1.2  Derivation
+1.3  Small deflection of thin rectangular plates
+1.4  Large deflection of thin rectangular plates
+2  Circular Kirchhoff-Love plates   2.1  Clamped edges
+3  Rectangular Kirchhoff-Love plates   3.1  Sinusoidal load
+3.2  Navier solution   3.2.1  Double trigonometric series equation
+3.2.2  Simply-supported plate with general load
+3.2.3  Simply-supported plate with uniformly-distributed load
+3.3  Lévy solution   3.3.1  Moments along edges
+3.3.2  Simply-supported plate with uniformly-distributed load
+3.3.3  Uniform and symmetric moment load
+3.4  Cylindrical plate bending   3.4.1  Simply supported plate with axially fixed ends
+4  Bending of thick Mindlin plates   4.1  Governing equations
+4.2  Simply supported rectangular plates
+5  Bending of Reissner-Stein cantilever plates
+6  See also
+7  References
+Bending of Kirchhoff-Love plates [ edit ]
+Forces and moments on a flat plate.
+Definitions [ edit ]
+Moments [ edit ]
+Forces [ edit ]
+Stresses [ edit ]
+Strains [ edit ]
+Deflections [ edit ]
+Derivation [ edit ]
+Small deflection of thin rectangular plates [ edit ]
+Large deflection of thin rectangular plates [ edit ]
+Circular Kirchhoff-Love plates [ edit ]
+Clamped edges [ edit ]
+Rectangular Kirchhoff-Love plates [ edit ]
+Sinusoidal load [ edit ]
+Navier solution [ edit ]
+Double trigonometric series equation [ edit ]
+Simply-supported plate with general load [ edit ]
+Simply-supported plate with uniformly-distributed load [ edit ]
+Displacement (  )
+Stress (  )
+Stress (  )
+Lévy solution [ edit ]
+Moments along edges [ edit ]
+Simply-supported plate with uniformly-distributed load [ edit ]
+Uniform and symmetric moment load [ edit ]
+Displacement (  )
+Bending stress (  )
+Transverse shear stress (  )
+Cylindrical plate bending [ edit ]
+Simply supported plate with axially fixed ends [ edit ]
+Bending of thick Mindlin plates [ edit ]
+Governing equations [ edit ]
+Simply supported rectangular plates [ edit ]
+Bending of Reissner-Stein cantilever plates [ edit ]
+See also [ edit ]
+Bending
+Infinitesimal strain theory
+Kirchhoff-Love plate theory
+Linear elasticity
+Mindlin-Reissner plate theory
+Plate theory
+Stress (mechanics)
+Stress resultants
+Structural acoustics
+Vibration of plates
+References [ edit ]
+^  Reddy, J. N., 2007, Theory and analysis of elastic plates and shells , CRC Press, Taylor and Francis.
+^  Timoshenko, S. and Woinowsky-Krieger, S., (1959), Theory of plates and shells , McGraw-Hill New York.
+^  Cook, R. D. et al., 2002, Concepts and applications of finite element analysis , John Wiley & Sons
+^  Lévy, M., 1899, Comptes rendues , vol. 129, pp. 535-539
+^ a  b  Lim, G. T. and Reddy, J. N., 2003, On canonical bending relationships for plates , International Journal of Solids and Structures, vol. 40, pp. 3039-3067.
+^  E. Reissner and M. Stein. Torsion and transverse bending of cantilever plates. Technical Note 2369, National Advisory Committee for Aeronautics,Washington, 1951.
+Retrieved from " https://en.wikipedia.org/w/index.php?title=Bending_of_plates&oldid=1117355165 "
+Categories : Continuum mechanics
+Navigation menu
+Personal tools
+Not logged in
+Talk
+Contributions
+Create account
+Log in
+Namespaces
+Article
+Talk
+English
+Views
+Read
+Edit
+View history
+More
+Navigation
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Contribute
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Tools
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Cite this page
+Wikidata item
+Print/export
+Download as PDF
+Printable version
+In other projects
+Wikimedia Commons
+Languages
+Dansk
+Русский
+Edit links
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Mobile view
+Developers
+Statistics
+Cookie statement
+BCELoss - PyTorch 1.13 documentation
+Table of Contents
+1.13 ▼
+Community
+PyTorch Governance | Build + CI
+PyTorch Contribution Guide
+PyTorch Design Philosophy
+PyTorch Governance | Mechanics
+PyTorch Governance | Maintainers
+Developer Notes
+CUDA Automatic Mixed Precision examples
+Autograd mechanics
+Broadcasting semantics
+CPU threading and TorchScript inference
+CUDA semantics
+Distributed Data Parallel
+Extending PyTorch
+Frequently Asked Questions
+Gradcheck mechanics
+HIP (ROCm) semantics
+Features for large-scale deployments
+Modules
+MPS backend
+Multiprocessing best practices
+Numerical accuracy
+Reproducibility
+Serialization semantics
+Windows FAQ
+Language Bindings
+C++
+Javadoc
+torch::deploy
+Python API
+torch
+torch.nn
+torch.nn.functional
+torch.Tensor
+Tensor Attributes
+Tensor Views
+torch.amp
+torch.autograd
+torch.library
+torch.cuda
+torch.backends
+torch.distributed
+torch.distributed.algorithms.join
+torch.distributed.elastic
+torch.distributed.fsdp
+torch.distributed.optim
+torch.distributions
+torch.fft
+torch.futures
+torch.fx
+torch.hub
+torch.jit
+torch.linalg
+torch.monitor
+torch.special
+torch.overrides
+torch.package
+torch.profiler
+torch.nn.init
+torch.onnx
+torch.optim
+Complex Numbers
+DDP Communication Hooks
+Pipeline Parallelism
+Quantization
+Distributed RPC Framework
+torch.random
+torch.masked
+torch.nested
+torch.sparse
+torch.Storage
+torch.testing
+torch.utils.benchmark
+torch.utils.bottleneck
+torch.utils.checkpoint
+torch.utils.cpp_extension
+torch.utils.data
+torch.utils.jit
+torch.utils.dlpack
+torch.utils.mobile_optimizer
+torch.utils.model_zoo
+torch.utils.tensorboard
+Type Info
+Named Tensors
+Named Tensors operator coverage
+torch.__config__
+Libraries
+torchaudio
+TorchData
+TorchRec
+TorchServe
+torchtext
+torchvision
+PyTorch on XLA Devices
+Docs >
+torch.nn >
+BCELoss
+Shortcuts
+BCELoss ¶
+class  torch.nn. BCELoss ( weight = None , size_average = None , reduce = None , reduction = 'mean' ) [source] ¶
+ℓ ( x , y ) =  L =  { l  1 ​ , … , l  N ​ }  ⊤ , l  n ​ =  − w  n ​ [ y  n ​ ⋅ lo g x  n ​ + ( 1 − y  n ​ ) ⋅ lo g ( 1 − x  n ​ ) ] ,
+ℓ ( x , y ) =  {  mean ( L ) ,  sum ( L ) , ​  if reduction = 'mean';  if reduction = 'sum'. ​
+Parameters :
+weight
+.
+size_average
+reduce
+reduction
+Shape:
+Examples:
+>>> m  =  nn . Sigmoid ()  >>> loss  =  nn . BCELoss ()  >>> input  =  torch . randn ( 3 ,  requires_grad = True )  >>> target  =  torch . empty ( 3 ) . random_ ( 2 )  >>> output  =  loss ( m ( input ),  target )  >>> output . backward ()
+Next  Previous
+© Copyright 2022, PyTorch Contributors.
+BCELoss
+Docs
+View Docs
+Tutorials
+View Tutorials
+Resources
+View Resources
+PyTorch
+Get Started
+Features
+Ecosystem
+Blog
+Contributing
+Resources
+Tutorials
+Docs
+Discuss
+Github Issues
+Brand Guidelines
+Stay up to date
+Facebook
+Twitter
+YouTube
+LinkedIn
+PyTorch Podcasts
+Spotify
+Apple
+Google
+Amazon
+Terms
+|
+Privacy
+Get Started
+Ecosystem
+Mobile
+Blog
+Tutorials
+Docs
+PyTorch
+torchaudio
+torchtext
+torchvision
+torcharrow
+TorchData
+TorchRec
+TorchServe
+TorchX
+PyTorch on XLA Devices
+Resources
+About
+PyTorch Foundation
+Community
+Community Stories
+Developer Resources
+Events
+Forums
+Models (Beta)
+Github
+python - requests: disable auto decoding - Stack Overflow
+Stack Overflow     About
+Products
+For Teams
+Stack Overflow  Public questions & answers
+About the company
+Loading…
+current community
+Stack Overflow
+help  chat
+Meta Stack Overflow
+your communities
+more stack exchange communities
+company blog
+Log in
+Sign up
+Home
+Public
+Questions
+Tags
+Users
+Companies
+Collectives
+Explore Collectives
+Teams
+Stack Overflow for Teams
+Create a free Team  Why Teams?
+Teams
+Create free Team
+Collectives™ on Stack Overflow
+Learn more about Collectives
+Teams
+Q&A for work
+Learn more about Teams
+requests: disable auto decoding
+Ask Question
+Asked  9 years, 4 months ago
+Modified  2 years, 7 months ago
+Viewed 5k times
+13
+python
+python-requests
+Share
+Improve this question
+Follow
+edited Dec 6, 2016 at 19:32
+martineau   117k  25 25 gold badges  161 161 silver badges  289 289 bronze badges
+asked Aug 21, 2013 at 17:41
+Nick Nick   753  1 1 gold badge  11 11 silver badges  26 26 bronze badges
+0
+Add a comment  |
+2 Answers 2
+Sorted by:
+Reset to default
+Highest score (default)
+Trending (recent votes count more)
+Date modified (newest first)
+Date created (oldest first)
+14
+resp = requests.get(url, stream=True) resp.raw.read()
+Share
+Improve this answer
+Follow
+edited Feb 18, 2020 at 5:13
+Conrad   81  3 3 silver badges  8 8 bronze badges
+answered Aug 21, 2013 at 17:48
+Lukas Graf Lukas Graf   28.6k  8 8 gold badges  75 75 silver badges  90 90 bronze badges
+1        2
+Awesome, exactly what I needed Thanks!  - Nick
+Aug 21, 2013 at 17:55
+Add a comment  |
+0
+import requests  r = requests.get(url, stream=True) with open(local_filename, 'wb') as f:     for chunk in r.raw.stream(1024, decode_content=False):         if chunk:             f.write(chunk)
+Share
+Improve this answer
+Follow
+answered Jun 4, 2020 at 18:55
+Boban P. Boban P.   183  2 2 silver badges  5 5 bronze badges
+Add a comment  |
+Your Answer
+Draft saved
+Draft discarded
+Sign up or log in
+Sign up using Google
+Sign up using Facebook
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+python-requests
+The Overflow Blog
+Featured on Meta
+Temporary policy: ChatGPT is banned
+Linked
+0
+9
+9
+Related
+580
+969
+1009
+428
+492
+67
+428
+676
+576
+846
+ImportError: No module named requests
+Hot Network Questions
+more hot questions
+Question feed
+Subscribe to RSS
+lang-py
+Stack Overflow
+Questions
+Help
+Products
+Teams
+Advertising
+Collectives
+Talent
+Company
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Your privacy
+Accept all cookies
+Customize settings
+matrices - Derivative of the inverse of a matrix - Mathematics Stack Exchange
+Stack Exchange Network
+Visit Stack Exchange
+Loading…
+Tour Start here for a quick overview of the site
+Help Center Detailed answers to any questions you might have
+Meta Discuss the workings and policies of this site
+About Us Learn more about Stack Overflow the company
+Business Learn more about our products
+current community
+Mathematics
+help  chat
+Mathematics Meta
+your communities
+more stack exchange communities
+company blog
+Log in
+Sign up
+Sign up to join this community
+Home
+Public
+Questions
+Tags
+Users
+Unanswered
+Teams
+Stack Overflow for Teams
+Create a free Team  Why Teams?
+Teams
+Create free Team
+Teams
+Q&A for work
+Learn more about Teams
+Derivative of the inverse of a matrix
+Ask Question
+Asked  7 years, 3 months ago
+Modified  10 months ago
+Viewed 61k times
+65
+$$\frac{\delta K^{-1}}{\delta p} = -K^{-1}\frac{\delta K}{\delta p}K^{-1}$$
+$$\frac{\delta K^{-1}}{\delta p} = -K^{-2}\frac{\delta K}{\delta p}=-K^{-T}K^{-1}\frac{\delta K}{\delta p}$$
+matrices
+derivatives
+inverse
+matrix-calculus
+Share
+Cite
+Follow
+edited Sep 29, 2020 at 7:58
+Rodrigo de Azevedo   19.5k  5 5 gold badges  38 38 silver badges  99 99 bronze badges
+asked Oct 9, 2015 at 12:00
+Sara Sara   857  1 1 gold badge  8 8 silver badges  8 8 bronze badges
+$\endgroup$
+3        4
+Oct 9, 2015 at 12:05
+9
+$\begingroup$  Hint:$ \partial_{\rho}(KK^{-1})=\partial_{\rho}\mathbb{1}$  $\endgroup$  - tired
+Oct 9, 2015 at 12:05
+1
+$\begingroup$  @tired what is $\mathbb{1}$? Do you perhaps mean $I$?  $\endgroup$  - John D
+Sep 9, 2021 at 8:56
+Add a comment  |
+4 Answers 4
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+130
+Share
+Cite
+Follow
+answered Oct 9, 2015 at 12:17
+A.Γ. A.Γ.   28.6k  4 4 gold badges  43 43 silver badges  76 76 bronze badges
+$\endgroup$
+1        2
+Jul 15, 2019 at 11:16
+Add a comment  |
+21
+Share
+Cite
+Follow
+answered Oct 9, 2015 at 12:10
+martini martini   81.9k  5 5 gold badges  90 90 silver badges  129 129 bronze badges
+$\endgroup$
+2
+Apr 30, 2018 at 13:19
+3
+May 28, 2020 at 22:34
+Add a comment  |
+12
+Share
+Cite
+Follow
+edited Feb 26, 2022 at 9:35
+answered Aug 12, 2021 at 3:06
+cyrie wang cyrie wang   121  1 1 silver badge  4 4 bronze badges
+$\endgroup$
+Add a comment  |
+1
+Share
+Cite
+Follow
+answered Feb 26, 2022 at 13:09
+Steph Steph   2,533  1 1 gold badge  3 3 silver badges  7 7 bronze badges
+$\endgroup$
+Add a comment  |
+derivatives
+inverse
+matrix-calculus
+.
+The Overflow Blog
+Linked
+2
+Inverse of matrix derivative
+8
+5
+Differentiating mahalanobis distance
+4
+Derivative involving inverse matrix
+2
+Vector calculus: Compute Jacobian $D_x (A(x)^{-1} v(x))$
+2
+Metric tensor derivative identity
+1
+0
+Derivative of the pseudoinverse
+0
+1
+See more linked questions
+Related
+0
+1
+Matrix derivative $\frac{\partial}{\partial w} (y^\top g(H(w)) y)$
+1
+2
+2
+1
+0
+Inverse matrix derivative
+5
+Hot Network Questions
+Wordle games without repeating letters
+more hot questions
+Question feed
+Subscribe to RSS
+Mathematics
+Tour
+Help
+Chat
+Contact
+Feedback
+Company
+Stack Overflow
+Teams
+Advertising
+Collectives
+Talent
+About
+Press
+Legal
+Privacy Policy
+Terms of Service
+Cookie Settings
+Cookie Policy
+Stack Exchange Network
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Your privacy
+Accept all cookies
+Customize settings

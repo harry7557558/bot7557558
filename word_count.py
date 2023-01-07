@@ -121,8 +121,26 @@ def stats_words(words, num_words):
     }
 
 
-def get_text_from_url(text_url) -> str:
-    """Retrieves text from an URL"""
+def replace_special_characters(s: str) -> str:
+    s = s.replace("“", '"').replace(
+        "”", '"').replace("‘", "'").replace("’", "'")
+    s = re.sub(r"[˗‐‑–﹘—]", '-', s)
+    return s
+
+
+def get_text_from_url(text_url: str):
+    """Retrieves text from an URL
+        Returns a tuple of plain text and the response header"""
+    # replace URL
+    if '#' in text_url:
+        text_url = text_url[:text_url.find('#')]
+    if '://docs.google.com/document/d/' in text_url:
+        text_url = text_url.split('/')
+        if text_url[-1] in ['', 'edit', 'preview']:
+            text_url[-1] = 'mobilebasic'
+        text_url = '/'.join(text_url)
+
+    # get URL
     print("Request", text_url)
     req = requests.get(
         text_url,
@@ -138,10 +156,14 @@ def get_text_from_url(text_url) -> str:
     if req.status_code >= 400:
         raise ValueError(f"Request URL returns {req.status_code}.")
     content_type = req.headers['content-type'].lower()
+    if 'content-encoding' not in req.headers:
+        req.encoding = 'utf-8'
     if ';' in content_type:
         content_type = content_type[:content_type.index(';')]
     text = req.content
-    if content_type == "text/html":  # get HTML text
+
+    # get HTML text
+    if content_type == "text/html":
         def get_text(element):
             texts = ['']
             if element.name.lower() in ['head', 'style', 'script', 'noscript', 'math']:
@@ -158,7 +180,8 @@ def get_text_from_url(text_url) -> str:
                 if isinstance(child, bs4.Comment):
                     continue
                 elif isinstance(child, str):
-                    add_text([child.strip().replace('\n', ' ')])
+                    add_text([child.strip().replace(
+                        '\r\n', '\n').replace('\n', ' ')])
                     stick = True
                 else:
                     text_child = get_text(child)
@@ -179,12 +202,18 @@ def get_text_from_url(text_url) -> str:
             texts.append(title.text)
         description = parsed.find('meta', {'name': 'description'})
         if description is not None and 'content' in description.attrs:
-            texts.append(str(description.attrs['content']))
+            description = str(description.attrs['content']).strip()
+        else:
+            description = ""
         texts += get_text(parsed.find('body'))
+        texts = [line.strip() for line in texts]
+        if len(description) > 1000 or description not in texts:
+            texts.append(description)
         text = '\n'.join(texts)
         text = re.sub(r"(\r?\n)+", "\n", text).strip()
-        open(".html.temp", 'w').write(text)  # for debugging
-    elif isinstance(text, bytes):  # try to decode UTF-8
+
+    # try to decode UTF-8
+    elif isinstance(text, bytes):
         try:
             text = req.content.decode('utf-8')
         except:
@@ -194,10 +223,53 @@ def get_text_from_url(text_url) -> str:
         raise ValueError(
             f"Error intepreting response with content type `{content_type}` to string.\n"
             + f"Interpreted type: {type(text)}.")
-    return text
+    text = replace_special_characters(text)
+
+    # handle txt e-book alike line break
+    if content_type == "text/plain":
+        text = text.replace('\r\n', '\n').split('\n')
+        texts = []
+        capture = False
+        long_line = False
+        for line in text:
+            line = line.strip()
+            if line == '':
+                capture = False
+                continue
+            if (capture and line[0].islower()) or \
+                    (long_line and len(line) > 32):
+                texts[-1] += ' ' + line
+            else:
+                texts.append(line)
+            capture = line[-1].islower() or line[-1] in ",:'\"-)"
+            long_line = len(line) > 48
+        text = '\n'.join(texts)
+
+    open(".html.temp", 'w').write(text)  # for debugging
+    return text, req.headers
 
 
-def flesch_kincaid_readability(text):
+def is_wanted_html(line):
+    """Test if a line from an HTML is wanted for readability check"""
+    s = line.strip()
+    s = re.sub(r"[a-z]", 'a', s)
+    s = re.sub(r"[A-Z]", 'A', s)
+    s = re.sub(r"[0-9]", '0', s)
+    s = re.sub(r"\s", ' ', s)
+    weights = {' ': -0.0085, '!': 1.8875, '"': 0.9782, '$': -0.1644, '&': 0.5831,
+               "'": -0.6959, '(': -0.0929, ')': -0.0961, '*': 0.428, '+': -0.2615,
+               ',': 0.0972, '-': 0.4882, '.': 0.3976, '/': 0.0095, '0': -0.3535,
+               ':': -0.1494, ';': 0.5223, '<': 0.3736, '=': 0.2193, '>': -2.1398,
+               '?': 3.2519, 'A': -0.3841, '[': 0.2734, '\\': -0.1707, ']': 0.5493,
+               '^': 0.7976, '_': -0.6222, 'a': 0.0509, '{': 0.0975, '}': -0.1276}
+    total = -1.2
+    for c in s:
+        if c in weights:
+            total += weights[c]
+    return total > 0.0
+
+
+def flesch_kincaid_readability(text, is_html=False):
     """Returns (num_sentences, num_words, num_unique_words,
                 grade_level, readability_level)
     """
@@ -206,20 +278,33 @@ def flesch_kincaid_readability(text):
         syllable_cached
     except:
         init_syllable_counter()
-    text = re.sub(r"[\.\!\?\;]", '\n', text)  # sentence terminator
+    if is_html:
+        text = text.split('\n')
+        text = [s for s in text if is_wanted_html(s)]
+        text = '\n'.join(text)
+    text = re.sub(r"[\.\!\?\;]", '.', text)  # sentence terminator
     text = ''.join([c for c in unicodedata.normalize('NFKD', text)
                     if unicodedata.category(c) != 'Mn'])  # remove accents
-    text = re.sub(r"""[“”‘’'"]""", '', text).replace("\u00a0", ' ')
-    text = ''.join([c if ord('a') <= ord(c) <= ord('z') or c in '\n' else ' '
+    text = re.sub(r"[\"']", '', text)
+    text = ''.join([c if ord('a') <= ord(c) <= ord('z') or c in '.\n' else ' '
                     for c in text.lower()])  # letters only
-    text = re.sub(r"\s*?\n\s*", '.', text.strip())  # line separators
-    text = re.sub(r"\s+", ' ', text)  # consecutive whitespaces
+    text = re.sub(r"\s*?\n\s*", '\n', text.strip())  # line separators
+    sentences = []
+    short_words = set(['a', 'i', 'am', 'an', 'as', 'at', 'by', 'if', 'in', 'is', 'it',
+                       'me', 'my', 'of', 'or', 'so', 'to', 'up', 'us', 'we'])
+    for line in text.split('\n'):
+        line = re.sub(r"\s+", ' ', line.strip())
+        line = [s.strip() for s in line.split('.')]
+        for sentence in line:
+            sentence = [w for w in sentence.split(' ') if w != '']
+            word_count = len(
+                [w for w in sentence if len(w) > 2 or w in short_words])
+            if word_count > 2:  # hard constraint
+                sentences.append(sentence)
 
-    sentences = text.split('.')
-    sentence_words = [sentence.count(' ')+1 for sentence in sentences]
-    sentences = [sentences[i].split(' ') for i in range(len(sentences))
-                 if sentence_words[i] >= 5]
-    sentence_words = [c for c in sentence_words if c >= 5]
+    sentence_words = [len(s) for s in sentences]
+    open(".fkstrip.temp", 'w').write(
+        '\n'.join([' '.join(ws) for ws in sentences]))
     if len(sentence_words) == 0:
         return None
     if False:
@@ -239,31 +324,34 @@ def flesch_kincaid_readability(text):
     total_words = len(words)
     total_syllables = sum([count_word_syllables(w) for w in words])
     mean_word_syllables = total_syllables / total_words
-    # print(mean_sentence_words, mean_word_syllables)
 
     grade = 0.39 * mean_sentence_words + 11.8 * mean_word_syllables - 15.59
     level = 206.835 - 1.015 * mean_sentence_words - 84.6 * mean_word_syllables
+    print("Readability (mw, ms, grade, level):",
+          mean_sentence_words, mean_word_syllables, grade, level)
     # print(grade, level)
     grade = f"Grade {round(grade)}"
-    level = "<5th grade" if level > 100 else \
-            "5th grade" if level > 90 else \
-        "6th grade" if level > 80 else \
-        "7th grade" if level > 70 else \
-        "8th-9th grade" if level > 60 else \
-        "10th-12th grade" if level > 50 else \
-        "College" if level > 30 else \
-        "College graduate" if level > 10 else \
-        "Professional"
+    level = "Preschool" if level > 100 else \
+            "Very easy" if level > 90 else \
+        "Easy" if level > 80 else \
+        "Fairly easy" if level > 70 else \
+        "Plain" if level > 60 else \
+        "Fairly difficult" if level > 50 else \
+        "Difficult" if level > 30 else \
+        "Very difficult" if level > 10 else \
+        "Extremely difficult"
     return (len(sentences), len(words), len(set(words)), grade, level)
 
 
 def stats_words_url(text_url, count_fun, num_words, min_length, phrase_length):
     """Word stats entry function, receives document URL and parameters"""
-    text = get_text_from_url(text_url)
+    text, headers = get_text_from_url(text_url)
     words = count_fun(text, min_length, phrase_length)
     res = stats_words(words, num_words)
     if count_fun == count_words and num_words <= 15 and phrase_length == 1:
-        fk = flesch_kincaid_readability(text)
+        fk = flesch_kincaid_readability(
+            text,
+            headers['content-type'].lower().startswith("text/html"))
         if fk is not None:
             res['readability'] = fk
     return res
@@ -276,6 +364,8 @@ def stats_words_message(message: str):
     # split message
     if message[0] not in ['+', '$']:
         return None
+    if '\n' in message:
+        message = message[:message.find('\n')]
     message = message[1:].strip().split(' ')
     if len(message) < 2:
         return None
@@ -326,20 +416,18 @@ def stats_words_message(message: str):
 
     # check parameters
     if url is None:
-        description = "Here are some working examples you may try:"
+        description = "Count the frequency of words/phrases/characters/strings in a document."
         if 'help' not in (' '.join(message)).lower():
             raise ValueError(
                 "No URL detected. Type `+word-stats help` for examples of this command.")
         return description, """
-+word-stats https://en.wikipedia.org/wiki/Human count=10 min-length=2 phrase-length=2
-+char-stats https://en.wikipedia.org/wiki/Human count=20
-+word-stats https://harry7557558.github.io/desmos/graphs/z7zooq9zsh.json
-+word-stats https://harry7557558.github.io/desmos/graphs/z7zooq9zsh.json words
-+word-stats https://harry7557558.github.io/desmos/graphs/z7zooq9zsh.json chars phrase-length=32
-+word-stats https://harry7557558.github.io/shadertoy/shaders.json
-+word-stats https://www.gutenberg.org/files/10/10-h/10-h.htm identifier min-length=1 count=20
-+char-stats https://docs.google.com/document/d/1B7MUQFnMzgEBi-z0o2QsG-hHXcAOOsIbx4dPGrtVTNM/mobilebasic word count=500
-""".strip(), "Sentence count, word count, and Flesch-Kincaid readability measures are calculated independent of word statistics."
++[word-stats|char-stats] [url] [type] [count=] [min-length=] [phrase-length=]
+    @url: the URL to the document, must be `http` or `https`
+    @type: [word|code|char], respectively for English words, source code (identifiers), and character strings. If not specified, the program will automatically detect it from the command and the URL extension.
+    @count: the maximum number of items in the display list, default 15
+    @min-length: minimum required length for the word/identifier, default 1 for word and 2 for identifier
+    @phrase-length: the length of the phrase or string, default 1
+""".strip(), "For English words with default parameters, readability information are calculated. Note that sentence count, word count, and Flesch-Kincaid readability measures are calculated independent of word statistics, and HTML contents that the program deemed to be not representing the readability may be stripped."
     ext = url.split('.')[-1].lower()
     if '#' in ext:
         ext = ext[:ext.index('#')]
@@ -406,8 +494,8 @@ def stats_words_message(message: str):
         fk = "   •   ".join([
             f"{ns} sentence" + 's'*(ns != 1),
             f"{nw} word{'s'*(nw != 1)} ({nuw} unique)",
-            f"Grade level: {grade}",
-            f"Reading case: {level}"
+            f"Reading level: {grade}",
+            f"Reading ease: {level}"
         ])
         return message, stats['stats'], fk
     return message, stats['stats']
@@ -451,6 +539,40 @@ if __name__ == "__main__":
         "+word-stats https://lit.harry7557558.repl.co/amsnd.html"
     ]
     command = examples[3]
+    testUrls = [
+        # difficult to read
+        "https://discord.com/terms",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8025698/",
+        # intentionally written for extreme reading difficulty
+        "https://docs.google.com/document/d/1lEulxtrdUULsor7Mjg0I__7pnMB8yAFqLwvPOfzfMRU/edit",
+        # extremely easy to read (or not?)
+        "https://www.site.uottawa.ca/~lucia/courses/2131-02/A2/trythemsource.txt",
+        # increasing reading difficulty
+        "https://movies.fandom.com/wiki/Frozen_(2013)/Transcript",
+        "https://frozen.fandom.com/wiki/Elsa",
+        "https://en.m.wikipedia.org/wiki/Elsa_(Frozen)",
+        "https://dsq-sds.org/article/download/5310/4648",
+        # expect the same results for each pair
+        # nautilus, frankenstein, peter pan, don quixote
+        "https://www.gutenberg.org/cache/epub/164/pg164-images.html",
+        "https://www.gutenberg.org/cache/epub/164/pg164.txt",
+        "https://www.gutenberg.org/cache/epub/84/pg84-images.html",
+        "https://www.gutenberg.org/cache/epub/84/pg84.txt",
+        "https://www.gutenberg.org/cache/epub/16/pg16-images.html",
+        "https://www.gutenberg.org/files/16/16-0.txt",
+        "https://www.gutenberg.org/cache/epub/996/pg996-images.html",
+        "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+        # math/figure heavy
+        "https://pbr-book.org/3ed-2018/Reflection_Models/Microfacet_Models",
+        "https://jamie-wong.com/2016/08/05/webgl-fluid-simulation/",
+        "https://en.wikipedia.org/wiki/Bending_of_plates",
+        # code heavy
+        "https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html",
+        "https://stackoverflow.com/questions/18364193/requests-disable-auto-decoding",
+        "https://math.stackexchange.com/questions/1471825/derivative-of-the-inverse-of-a-matrix",
+    ]
+    command = "+word-stats " + testUrls[0]
+
     res = stats_words_message(command)
     if len(res) == 3:
         message, stats, fk = res
