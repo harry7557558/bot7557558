@@ -41,25 +41,25 @@ def quasi_random():
     return van_der_corput(_idum, 2)
 
 
-RequestCache = {}
-
-
 def get_site_objects(url: str) -> dict:
     """Get quote or link list"""
 
     # fetch data
-    if url in RequestCache:
-        content = RequestCache[url]
-    else:
-        req = requests.get(url)
-        print(url, '-', req.status_code)
-        content = json.loads(req.content)
-        RequestCache[url] = content
+    req = requests.get(url)
+    print(url, '-', req.status_code)
+    content = json.loads(req.content)
+
+    # make LDS unpredictable
+    groups = list(content.values())
+    random.shuffle(groups)
+    for group in groups:
+        random.shuffle(group['objects'])
 
     # get a list of probabilities
     items = []
-    for group_key in content:
-        group = content[group_key]['objects']
+    for ggroup in groups:
+        group = ggroup['objects']
+        probability = ggroup['probability']
         sub_items = []
         for item in group:
             sub_items.append({
@@ -75,7 +75,7 @@ def get_site_objects(url: str) -> dict:
         for item in sub_items:
             items.append({
                 'text': item['text'],
-                'probability': item['weight'] * content[group_key]['probability'],
+                'probability': item['weight'] * probability,
                 'alt': item['alt'],
                 'psa': -1.0
             })
@@ -106,6 +106,9 @@ def stat_site_objects(objects) -> str:
     return '\n'.join(lines)
 
 
+LoadedObjects = {}
+
+
 async def send_hello_message(message):
     """Send a random quote from the website homepage"""
 
@@ -118,7 +121,9 @@ async def send_hello_message(message):
     if "stat" in message.content:
         global RequestCache
         RequestCache = {}
-    objects = get_site_objects(url)
+    if url not in LoadedObjects:
+        LoadedObjects[url] = get_site_objects(url)
+    objects = LoadedObjects[url]
 
     # statistics
     if "stat" in message.content:
