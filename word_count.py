@@ -60,9 +60,10 @@ def count_characters(s, min_length, phrase_length):
 def init_syllable_counter():
     global syllable_weights, syllable_cached
     global syllable_weights_m, syllable_weights_b
+    r = __import__('os').path.dirname(__file__).rstrip('/')+'/'
     substrs = open(
-        "scripts/syllable_count/freqs_substrs.txt").read().split(',')
-    weights = open("scripts/syllable_count/freqs_weights.bin", 'rb').read()
+        r+"scripts/syllable_count/freqs_substrs.txt").read().split(',')
+    weights = open(r+"scripts/syllable_count/freqs_weights.bin", 'rb').read()
     weights = list(struct.unpack('<'+"f"*(len(weights)//4), weights))
     assert len(substrs)+2 == len(weights)
     syllable_weights = dict(zip(substrs, weights))

@@ -7,6 +7,7 @@ import json
 import html
 import random
 import os
+import re
 
 
 def is_hello(content):
@@ -118,7 +119,9 @@ async def send_hello_message(message):
         root = "https://harry7557558.github.io/src/"
     filename = "links.json" if "link" in message.content else "quotes.json"
     url = root + filename
-    if "stat" in message.content:
+    is_stat = re.search(r"\sstat(istic)?s?\b", message.content)
+    print(is_stat)
+    if is_stat:
         global RequestCache
         RequestCache = {}
     if url not in LoadedObjects:
@@ -126,7 +129,7 @@ async def send_hello_message(message):
     objects = LoadedObjects[url]
 
     # statistics
-    if "stat" in message.content:
+    if is_stat:
         stats = stat_site_objects(objects)
         with open('.hello.temp', 'wb') as fp:
             fp.write(bytearray(stats, 'utf-8'))
