@@ -20,8 +20,7 @@ async def send_text_message(channel, message):
         await channel.send(message)
 
 
-intents = discord.Intents.default()
-intents.messages = True
+intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
 
@@ -110,11 +109,9 @@ async def on_message_delete(message):
 
 
 if __name__ == "__main__":
-    try:
-        # my local Windows
+    if os.path.isfile('.token'):
         client.run(open(".token").read())
-    except:
-        # repl.it
+    else:  # repl.it
         try:
             client.run(os.getenv('TOKEN'))
         except:  # rate limited

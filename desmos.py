@@ -100,13 +100,18 @@ def get_graph_description(state) -> str:
     return description.strip()
 
 
-def generate_embed(graph_id, check_history: bool):
+def generate_embed(calculator, graph_id, check_history: bool):
     # basic graph info
-    url = "https://www.desmos.com/calculator/" + graph_id
+    url = f"https://www.desmos.com/{calculator}/{graph_id}"
     graph = get_graph_info(url)
     state = graph['state']
     hash = graph['hash']
-    title = "Desmos | Graphing Calculator" if graph['title'] == None else graph['title']
+    calculator_name = {
+        'calculator': "Graphing Calculator",
+        '3d': "3D Graphing Calculator",
+        'geometry': "Geometry"
+    }[calculator]
+    title = f"Desmos | {calculator_name}" if graph['title'] == None else graph['title']
     thumbnail = graph['thumbUrl'] if 'thumbUrl' in graph else "https://s3.amazonaws.com/desmos/img/calc_thumb.png"
     time = datetime.datetime(*email.utils.parsedate(graph['created'])[:6])
 
@@ -142,7 +147,7 @@ def generate_embed(graph_id, check_history: bool):
                 phash = pgraph['parent_hash']
                 if phash == hash:
                     break
-                purl = "https://www.desmos.com/calculator/"+phash
+                purl = f"https://www.desmos.com/{calculator}/{phash}"
                 pgraph = get_graph_info(purl, False)
                 history.append(purl)
             except:
@@ -159,14 +164,15 @@ def generate_embed(graph_id, check_history: bool):
 
 def parse_message_links(message, check_history: bool):
     graph_ids = {}
-    for url in re.findall(
-            r"https?://(?:www\.)?desmos\.com/calculator/[a-z0-9]+", message):
-        graph_id = url[url.rfind('/')+1:]
+    for match in re.findall(
+            r"https?://(?:www\.)?desmos\.com/(calculator|3d|geometry)/([a-z0-9]+)", message):
+        calculator = match[-2]
+        graph_id = match[-1]
         graph_ids[graph_id] = True
     embeds = []
     for graph_id in graph_ids:
         try:
-            embed = generate_embed(graph_id, check_history)
+            embed = generate_embed(calculator, graph_id, check_history)
             embeds.append(embed)
         except BaseException as error:
             raise error

@@ -113,7 +113,7 @@ LoadedObjects = {}
 async def send_hello_message(message):
     """Send a random quote from the website homepage"""
 
-    if os.name == 'nt':
+    if os.path.isfile('.token'):
         root = "http://localhost:8000/src/"
     else:
         root = "https://harry7557558.github.io/src/"
