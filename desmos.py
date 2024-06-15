@@ -5,8 +5,8 @@ import requests
 import re
 import html
 import json
-import email.utils
 import datetime
+import dateutil.parser
 from trigger import remove_spoilers
 
 
@@ -32,24 +32,31 @@ def get_graph_info(url, state_required=True):
 def get_graph_size_summary(state) -> str:
     """Generate a string of the size of the graph as a summary"""
 
-    def format_plural(count: int, name: str) -> str:
+    def format_plural(count: int, name: str, suffix: str='') -> str:
         name += "s" * (count > 1)
         count_s = ""
         while count >= 1000:
             count_s = "," + "{:03d}".format(count % 1000) + count_s
             count //= 1000
         count_s = str(count) + count_s
-        return count_s + " " + name
+        return ' '.join([count_s, name, suffix]).strip()
 
     # get size
     byte_count = len(bytearray(json.dumps(
         state, separators=(',', ':')), 'utf-8'))  # may vary
-    expr_count, note_count, folder_count, table_count, img_count = [0]*5
+    (
+        expr_count, tone_count, regression_count,
+        note_count, folder_count, table_count, img_count
+    ) = [0]*7
     for expr in state['expressions']['list']:
         if 'type' not in expr:
             continue  # ??
         if expr['type'] == "expression" and 'latex' in expr:
             expr_count += 1
+            if "\\operatorname{tone}" in expr['latex']:
+                tone_count += 1
+            if "residualVariable" in expr or "regressionParameters" in expr:
+                regression_count += 1
         if expr['type'] == "text" and 'text' in expr:
             note_count += 1
         if expr['type'] == "folder":
@@ -61,14 +68,18 @@ def get_graph_size_summary(state) -> str:
     size_info = [format_plural(byte_count, "byte")]
     if expr_count != 0:
         size_info.append(format_plural(expr_count, "expression"))
+    if tone_count != 0:
+        size_info.append(format_plural(tone_count, "tone", "🎵"))
     if note_count != 0:
-        size_info.append(format_plural(note_count, "note"))
+        size_info.append(format_plural(note_count, "note", "📝"))
     if folder_count != 0:
-        size_info.append(format_plural(folder_count, "folder"))
+        size_info.append(format_plural(folder_count, "folder", "📁"))
     if table_count != 0:
-        size_info.append(format_plural(table_count, "table"))
+        size_info.append(format_plural(table_count, "table", "📋"))
+    if regression_count != 0:
+        size_info.append(format_plural(regression_count, "regression", "📈"))
     if img_count != 0:
-        size_info.append(format_plural(img_count, "image"))
+        size_info.append(format_plural(img_count, "image", "🖼️"))
 
     # detect animation
     for expr in state['expressions']['list']:
@@ -76,12 +87,12 @@ def get_graph_size_summary(state) -> str:
             continue
         if 'slider' in expr and 'isPlaying' in expr['slider'] \
                 and expr['slider']['isPlaying'] is True:
-            size_info.append("slider")
+            size_info.append("slider ▶️")
             break
     if 'ticker' in state['expressions'] and \
         'playing' in state['expressions']['ticker'] and \
             state['expressions']['ticker']['playing'] is True:
-        size_info.append("ticker")
+        size_info.append("ticker ⏲️")
     return " • ".join(size_info)
 
 
@@ -111,9 +122,16 @@ def generate_embed(calculator, graph_id, check_history: bool):
         '3d': "3D Graphing Calculator",
         'geometry': "Geometry"
     }[calculator]
-    title = f"Desmos | {calculator_name}" if graph['title'] == None else graph['title']
+    if 'title' in graph and graph['title'] is not None:
+        title = graph['title']
+    else:
+        title = f"Desmos | {calculator_name}"
     thumbnail = graph['thumbUrl'] if 'thumbUrl' in graph else "https://s3.amazonaws.com/desmos/img/calc_thumb.png"
-    time = datetime.datetime(*email.utils.parsedate(graph['created'])[:6])
+    try:
+        time = datetime.datetime.strptime(
+            graph['created'], "%a, %d %b %Y %H:%M:%S GMT")
+    except:
+        time = dateutil.parser.isoparse(graph['created'])
 
     # generate embed
     embed = discord.Embed(title=title, color=0x107030)

@@ -15,7 +15,7 @@ async def send_text_message(channel, message):
         with open('.temp', 'w') as fp:
             fp.write(message)
         with open(".temp", "r") as fp:
-            await channel.send(file=discord.File(fp, "result.txt"))
+            await channel.send(file=discord.File(fp, "message.txt"))
     else:
         await channel.send(message)
 
@@ -30,11 +30,6 @@ async def on_ready():
     print(message)
     channel = client.get_channel(947155714059665458)
     await channel.send(message)
-    # keep replit alive
-    try:
-        __import__("keep_alive").keep_alive()
-    except BaseException as e:
-        print("Failed to run `keep_alive`:", e)
 
 
 @client.event
